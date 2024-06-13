@@ -9,6 +9,7 @@ import {
   Badge,
   Stack,
   Button,
+  Center,
 } from "@mantine/core";
 import SplitLayout from "../components/SplitLayout";
 import { useNavigate } from "react-router-dom";
@@ -27,11 +28,15 @@ function Home() {
             left: <HomeInformation />,
             right: (
               <Card withBorder={false} bg={"#FCC419"} p={0}>
-                <Image
-                  radius={"lg"}
-                  fit="contain"
-                  src="./src/assets/osama.png"
-                />
+                <Box>
+                  <Center>
+                    <Image
+                      radius={"lg"}
+                      fit="contain"
+                      src="./src/assets/osama.png"
+                    />
+                  </Center>
+                </Box>
               </Card>
             ),
           }}

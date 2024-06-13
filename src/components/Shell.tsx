@@ -13,7 +13,7 @@ import {
   Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconSquareArrowLeft } from "@tabler/icons-react";
+import { IconArrowLeft, IconSquareArrowLeft } from "@tabler/icons-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -82,8 +82,9 @@ function Shell() {
               }}
             >
               <Button
+                size="lg"
                 variant="transparent"
-                leftSection={<IconSquareArrowLeft />}
+                leftSection={<IconArrowLeft />}
               >
                 HOME
               </Button>
