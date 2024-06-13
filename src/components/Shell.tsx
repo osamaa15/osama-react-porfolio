@@ -9,11 +9,10 @@ import {
   Group,
   NavLink,
   ScrollArea,
-  Skeleton,
   Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconChevronRight, IconSquareArrowLeft } from "@tabler/icons-react";
+import { IconSquareArrowLeft } from "@tabler/icons-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
