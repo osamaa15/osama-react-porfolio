@@ -65,6 +65,7 @@ function HomeInformation() {
       </Box>
       <Box>
         <Badge
+          size="lg"
           variant="gradient"
           gradient={{ from: "yellow", to: "orange", deg: 180 }}
         >
