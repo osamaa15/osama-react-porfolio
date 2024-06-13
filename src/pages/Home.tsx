@@ -27,10 +27,11 @@ function Home() {
 
   // Template
   return (
-    <Flex px={20} align={"center"} h={"100vh"} w={"100vw"}>
-      <Affix position={{ top: 20, right: 20 }}>
+    <Flex p={"xl"} align={"center"} h={"100vh"} w={"100vw"}>
+      <Affix position={{ top: 20, right: 10 }}>
         <ActionIcon
           variant="filled"
+          bg={"#F08C00"}
           size={"xl"}
           radius={"xl"}
           onClick={handleToggle}
@@ -47,8 +48,7 @@ function Home() {
                 <Image
                   radius={"lg"}
                   fit="contain"
-                  // src="./src/assets/osama.png"
-                  src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-10.png"
+                  src="./src/assets/osama.png"
                 />
               </Card>
             ),
@@ -89,17 +89,14 @@ function HomeInformation() {
         </Badge>
       </Box>
 
+      <Text ta={"center"} w={"55%"}>
+        I am a versatile and proficient manual tester (QA Analyst) in SQA.
+        Additionally, I have extensive experience in software development,
+        particularly proficient in React and Angular.
+      </Text>
+
       <Box>
-        <Text ta={"center"}>
-          I am a versatile and proficient manual tester (QA Analyst) in SQA.
-          Additionally, I have extensive experience in software development,
-          particularly proficient in React and Angular.
-        </Text>
-      </Box>
-      <Box>
-        <Button size={"lg"} radius={"xl"} variant="white">
-          MORE ABOUT ME
-        </Button>
+        <Button size={"lg"}>MORE ABOUT ME</Button>
       </Box>
     </Stack>
   );
