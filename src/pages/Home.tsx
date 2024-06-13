@@ -13,16 +13,16 @@ import {
 import SplitLayout from "../components/SplitLayout";
 import { useNavigate } from "react-router-dom";
 import { IconArrowRight } from "@tabler/icons-react";
-
+import { useMediaQuery } from "@mantine/hooks";
 function Home() {
   // Hooks
-
+  const isSmallScreen = useMediaQuery("(max-width: 768px)");
   // Handle funtions
 
   // Template
   return (
-    <Flex p={"xl"} align={"center"} h={"100vh"} w={"100vw"}>
-      <Card bg={"#FFF9DB"}>
+    <Flex p={isSmallScreen ? 0 : "xl"} align={"center"} h={"100vh"} w={"100vw"}>
+      <Card bg={"#FFF9DB"} radius={isSmallScreen ? 0 : "xl"}>
         <SplitLayout
           children={{
             left: <HomeInformation />,
@@ -47,19 +47,25 @@ function Home() {
 }
 
 function HomeInformation() {
+  // Hooks
   const navigate = useNavigate();
+  const isSmallScreen = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 320px)");
+
+  // Handle funtions
+
+  // Template
   return (
     <Stack justify="center" h={"100%"} align={"center"} gap={"md"}>
       <Box>
         <Title tt={"uppercase"}>Hi There!</Title>
       </Box>
       <Box>
-        <Title fw={700} size={"h3"}>
+        <Title fw={700} size={isSmallScreen ? "h5" : "h3"}>
           I'm{" "}
           <Text
             span
             variant="gradient"
-            size={"xl"}
             gradient={{ from: "orange", to: "yellow", deg: 90 }}
             inherit
             tt={"uppercase"}
@@ -78,7 +84,7 @@ function HomeInformation() {
         </Badge>
       </Box>
 
-      <Text ta={"center"} w={"55%"}>
+      <Text ta={"center"} w={isMobile ? "100%%" : "55%"}>
         I am a versatile and proficient manual tester (QA Analyst) in SQA.
         Additionally, I have extensive experience in software development,
         particularly proficient in React.
