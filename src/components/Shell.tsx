@@ -12,7 +12,7 @@ import {
   Stack,
   Text,
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { IconArrowLeft } from "@tabler/icons-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -23,11 +23,12 @@ function Shell() {
   const [opened, { toggle }] = useDisclosure();
   const [active, setActive] = useState(0);
   const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width: 320px)");
   const links = [
     { label: "ABOUT ME" },
-    { label: "RESUME" },
-    { label: "TESTIMONIALS " },
-    { label: "CONTACT" },
+    // { label: "RESUME" },
+    // { label: "TESTIMONIALS " },
+    // { label: "CONTACT" },
   ];
   //   Handle funtions
 
@@ -42,6 +43,7 @@ function Shell() {
         <Group h="100%" px="xs">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Text
+            size={isMobile ? "sm" : ""}
             variant="gradient"
             gradient={{ from: "orange", to: "yellow", deg: 190 }}
             fw={600}
