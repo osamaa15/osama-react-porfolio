@@ -22,7 +22,7 @@ function Home() {
   // Template
   return (
     <Flex p={"xl"} align={"center"} h={"100vh"} w={"100vw"}>
-      <Card  bg={"#FFF9DB"}>
+      <Card bg={"#FFF9DB"}>
         <SplitLayout
           children={{
             left: <HomeInformation />,
@@ -51,22 +51,22 @@ function HomeInformation() {
   return (
     <Stack justify="center" h={"100%"} align={"center"} gap={"md"}>
       <Box>
-        <Title>HI THERE!</Title>
+        <Title tt={"uppercase"}>Hi There!</Title>
       </Box>
       <Box>
-        <Group>
-          <Text fw={700} size={"xl"}>
-            I'M
-          </Text>
+        <Title fw={700} size={"h3"}>
+          I'm{" "}
           <Text
+            span
             variant="gradient"
             size={"xl"}
             gradient={{ from: "orange", to: "yellow", deg: 90 }}
-            fw={600}
+            inherit
+            tt={"uppercase"}
           >
             Muhammad Osama Iftikhar
           </Text>
-        </Group>
+        </Title>
       </Box>
       <Box>
         <Badge
@@ -85,8 +85,8 @@ function HomeInformation() {
       </Text>
 
       <Box>
-        <Button size={"lg"} onClick={() => navigate("/about")}>
-          MORE ABOUT ME
+        <Button tt={"uppercase"} size={"lg"} onClick={() => navigate("/about")}>
+          More About Me
         </Button>
       </Box>
     </Stack>

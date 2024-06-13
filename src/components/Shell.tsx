@@ -16,6 +16,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { IconArrowLeft } from "@tabler/icons-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import About from "../pages/About";
 
 function Shell() {
   // Hooks
@@ -91,7 +92,10 @@ function Shell() {
           </Card>
         </AppShell.Section>
       </AppShell.Navbar>
-      <AppShell.Main>Main</AppShell.Main>
+      <AppShell.Main>
+
+        <About />
+      </AppShell.Main>
     </AppShell>
   );
 }
