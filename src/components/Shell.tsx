@@ -13,7 +13,7 @@ import {
   Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconArrowLeft, IconSquareArrowLeft } from "@tabler/icons-react";
+import { IconArrowLeft } from "@tabler/icons-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -23,11 +23,10 @@ function Shell() {
   const [active, setActive] = useState(0);
   const navigate = useNavigate();
   const links = [
-    { label: "Dashboard", description: "Item with description" },
-    {
-      label: "Security",
-    },
-    { label: "Activity" },
+    { label: "ABOUT ME" },
+    { label: "RESUME" },
+    { label: "TESTIMONIALS " },
+    { label: "CONTACT" },
   ];
   //   Handle funtions
 
@@ -62,9 +61,9 @@ function Shell() {
               <NavLink
                 variant={active === index ? "light" : "subtle"}
                 href="#required-for-focus"
-                key={link.label}
+                key={link?.label}
                 active={index === active}
-                label={link.label}
+                label={link?.label}
                 onClick={() => setActive(index)}
                 color={active === index ? "white" : "black"}
                 fw={700}
