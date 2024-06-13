@@ -15,7 +15,6 @@ function About() {
           Me
         </Text>
       </Title>
-
       <Group>
         <Blockquote mt="xl" icon={<IconInfoCircle />} radius={"lg"}>
           <Title size={"h4"}>
@@ -24,9 +23,23 @@ function About() {
               QA Analyst | Frontend Developer
             </Text>
           </Title>
-          <br />I am a versatile and proficient manual tester (QA Analyst) in
-          SQA. Additionally, I have extensive experience in software
-          development, particularly proficient in React and Angular.
+          <br />
+          <Text c="dimmed">
+            I'm not just your average QA Analyst; I'm a many-sided professional
+            with a deep passion for ensuring software quality. My expertise lies
+            in the art of manual testing, where I excel at regardfully inspect
+            applications to uncover even the most cagey bugs. My experience goes
+            beyond just finding flaws; I possess a keen understanding of
+            Software Quality Assurance (SQA) principles, allowing me to
+            strategize and implement effective testing methodologies. But my
+            skillset doesn't stop there. I'm also a proficient software
+            developer, with a particular fondness for the power and flexibility
+            of React. This unique blend of qualities makes me a true asset to
+            any development team. My understanding of the development process
+            allows me to approach testing from a developer's perspective,
+            anticipating potential issues and crafting tests that truly
+            challenge the software's functionality.
+          </Text>
         </Blockquote>
       </Group>
       <Group>
@@ -44,14 +57,12 @@ function About() {
               title="Quality Assurance"
             >
               <Text c="dimmed" size="sm">
-                <Text variant="link" component="span" inherit>
-                  I work in web quality assurance, manually testing websites to
-                  ensure a smooth user experience. This means I click through
-                  pages, fill out forms, and try different functionalities to
-                  identify any bugs, glitches, or areas for improvement. My goal
-                  is to catch any issues before they reach real users, helping
-                  to deliver polished and user-friendly websites.
-                </Text>
+                I work in web quality assurance, manually testing websites to
+                ensure a smooth user experience. This means I click through
+                pages, fill out forms, and try different functionalities to
+                identify any bugs, glitches, or areas for improvement. My goal
+                is to catch any issues before they reach real users, helping to
+                deliver polished and user-friendly websites.
               </Text>
             </Timeline.Item>
             <Timeline.Item
@@ -59,11 +70,9 @@ function About() {
               title="Web Developement "
             >
               <Text c="dimmed" size="sm">
-                <Text variant="link" component="span" inherit>
-                  In addition to Quality Assurance, I build user interfaces for
-                  the web using React. It allows me to create interactive and
-                  dynamic applications that provide a great user experience.
-                </Text>
+                In addition to Quality Assurance, I build user interfaces for
+                the web using React. It allows me to create interactive and
+                dynamic applications that provide a great user experience.
               </Text>
             </Timeline.Item>
           </Timeline>

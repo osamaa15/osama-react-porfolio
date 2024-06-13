@@ -12,6 +12,7 @@ import {
 } from "@mantine/core";
 import SplitLayout from "../components/SplitLayout";
 import { useNavigate } from "react-router-dom";
+import { IconArrowRight } from "@tabler/icons-react";
 
 function Home() {
   // Hooks
@@ -84,7 +85,12 @@ function HomeInformation() {
       </Text>
 
       <Box>
-        <Button tt={"uppercase"} size={"lg"} onClick={() => navigate("/about")}>
+        <Button
+          tt={"uppercase"}
+          size={"lg"}
+          rightSection={<IconArrowRight />}
+          onClick={() => navigate("/about")}
+        >
           More About Me
         </Button>
       </Box>
