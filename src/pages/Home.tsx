@@ -8,37 +8,19 @@ import {
   Group,
   Badge,
   Stack,
-  Affix,
-  ActionIcon,
   Button,
 } from "@mantine/core";
 import SplitLayout from "../components/SplitLayout";
-import { IconMoon, IconSun } from "@tabler/icons-react";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   // Hooks
-  const [toogle, setToogle] = useState(false);
 
   // Handle funtions
-  function handleToggle() {
-    setToogle(!toogle);
-  }
 
   // Template
   return (
     <Flex p={"xl"} align={"center"} h={"100vh"} w={"100vw"}>
-      <Affix position={{ top: 20, right: 10 }}>
-        <ActionIcon
-          variant="filled"
-          bg={"#F08C00"}
-          size={"xl"}
-          radius={"xl"}
-          onClick={handleToggle}
-        >
-          {toogle ? <IconSun size={24} /> : <IconMoon size={24} />}
-        </ActionIcon>
-      </Affix>
       <Card radius={0}>
         <SplitLayout
           children={{
@@ -60,6 +42,7 @@ function Home() {
 }
 
 function HomeInformation() {
+  const navigate = useNavigate();
   return (
     <Stack justify="center" h={"100%"} align={"center"} gap={"md"}>
       <Box>
@@ -96,7 +79,9 @@ function HomeInformation() {
       </Text>
 
       <Box>
-        <Button size={"lg"}>MORE ABOUT ME</Button>
+        <Button size={"lg"} onClick={() => navigate("/about")}>
+          MORE ABOUT ME
+        </Button>
       </Box>
     </Stack>
   );
