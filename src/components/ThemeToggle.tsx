@@ -1,6 +1,6 @@
 import { Affix, ActionIcon } from "@mantine/core";
 import { IconSun, IconMoon } from "@tabler/icons-react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function ThemeToggle() {
   // Hooks
@@ -12,7 +12,7 @@ function ThemeToggle() {
   }
   // Template
   return (
-    <Affix position={{ top: 20, right: 10 }}>
+    <Affix position={{ bottom: 10, right: 10 }}>
       <ActionIcon
         variant="filled"
         bg={"#F08C00"}

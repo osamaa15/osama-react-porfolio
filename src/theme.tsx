@@ -45,6 +45,13 @@ const theme: MantineThemeOverride = {
         size: "md",
       },
     },
+    Avatar: {
+      defaultProps: {
+        radius: "xl",
+        size: "lg",
+        bg:"#F08C00"
+      },
+    },
   },
 };
 
