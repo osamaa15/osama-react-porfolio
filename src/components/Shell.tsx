@@ -7,18 +7,28 @@ import {
   Card,
   Center,
   Group,
+  NavLink,
   ScrollArea,
   Skeleton,
   Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconSquareArrowLeft } from "@tabler/icons-react";
+import { IconChevronRight, IconSquareArrowLeft } from "@tabler/icons-react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Shell() {
   // Hooks
   const [opened, { toggle }] = useDisclosure();
+  const [active, setActive] = useState(0);
   const navigate = useNavigate();
+  const links = [
+    { label: "Dashboard", description: "Item with description" },
+    {
+      label: "Security",
+    },
+    { label: "Activity" },
+  ];
   //   Handle funtions
 
   // Template
@@ -47,17 +57,26 @@ function Shell() {
           </Center>
         </AppShell.Section>
         <AppShell.Section grow my="md" component={ScrollArea}>
-          {Array(10)
-            .fill(0)
-            .map((_, index) => (
-              <Skeleton key={index} h={28} mt="sm" animate={false} />
-            ))}
+          {links.map((link, index) => (
+            <NavLink
+              href="#required-for-focus"
+              key={link.label}
+              active={index === active}
+              label={link.label}
+              onClick={() => setActive(index)}
+              bg={index === active ? "white" : "transparent"}
+            />
+          ))}
         </AppShell.Section>
         <AppShell.Section>
           <Card radius={"sm"} p={4} shadow="none">
-            <ActionIcon variant="transparent" w={"100%"} onClick={()=>{
+            <ActionIcon
+              variant="transparent"
+              w={"100%"}
+              onClick={() => {
                 navigate("/");
-            }}>
+              }}
+            >
               <Button
                 variant="transparent"
                 leftSection={<IconSquareArrowLeft />}
