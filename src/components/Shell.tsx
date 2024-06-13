@@ -43,8 +43,9 @@ function Shell() {
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Text
             variant="gradient"
-            gradient={{ from: "orange", to: "yellow", deg: 90 }}
+            gradient={{ from: "orange", to: "yellow", deg: 190 }}
             fw={600}
+            tt={"uppercase"}
           >
             Muhammad Osama Iftikhar
           </Text>
@@ -93,7 +94,6 @@ function Shell() {
         </AppShell.Section>
       </AppShell.Navbar>
       <AppShell.Main>
-
         <About />
       </AppShell.Main>
     </AppShell>
