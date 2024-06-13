@@ -8,12 +8,22 @@ import {
   Group,
   Badge,
   Stack,
+  Affix,
+  ActionIcon,
+  Button,
 } from "@mantine/core";
 import SplitLayout from "../components/SplitLayout";
+import { IconMoon, IconSun } from "@tabler/icons-react";
 
 function Home() {
   return (
-    <Box flex={1}>
+    <Flex px={20} align={"center"} h={"100vh"} w={"100vw"}>
+      <Affix position={{ top: 20, right: 20 }}>
+        <ActionIcon variant="filled" size={"xl"} radius={"xl"}>
+          <IconMoon size={24} />
+          {/* <IconSun size={24} /> */}
+        </ActionIcon>
+      </Affix>
       <Card radius={0}>
         <SplitLayout
           children={{
@@ -31,7 +41,7 @@ function Home() {
           }}
         />
       </Card>
-    </Box>
+    </Flex>
   );
 }
 
@@ -71,6 +81,11 @@ function HomeInformation() {
           Additionally, I have extensive experience in software development,
           particularly proficient in React and Angular.
         </Text>
+      </Box>
+      <Box>
+        <Button size={"lg"} radius={"xl"} variant="white">
+          MORE ABOUT ME
+        </Button>
       </Box>
     </Stack>
   );

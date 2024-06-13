@@ -39,6 +39,12 @@ const theme: MantineThemeOverride = {
         size: "lg",
       },
     },
+    Button: {
+      defaultProps: {
+        radius: "md",
+        size: "md",
+      },
+    },
   },
 };
 
