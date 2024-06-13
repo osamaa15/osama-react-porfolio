@@ -22,7 +22,7 @@ function Home() {
   // Template
   return (
     <Flex p={"xl"} align={"center"} h={"100vh"} w={"100vw"}>
-      <Card radius={0}>
+      <Card  bg={"#FFF9DB"}>
         <SplitLayout
           children={{
             left: <HomeInformation />,
