@@ -14,14 +14,28 @@ import {
 } from "@mantine/core";
 import SplitLayout from "../components/SplitLayout";
 import { IconMoon, IconSun } from "@tabler/icons-react";
+import { useState } from "react";
 
 function Home() {
+  // Hooks
+  const [toogle, setToogle] = useState(false);
+
+  // Handle funtions
+  function handleToggle() {
+    setToogle(!toogle);
+  }
+
+  // Template
   return (
     <Flex px={20} align={"center"} h={"100vh"} w={"100vw"}>
       <Affix position={{ top: 20, right: 20 }}>
-        <ActionIcon variant="filled" size={"xl"} radius={"xl"}>
-          <IconMoon size={24} />
-          {/* <IconSun size={24} /> */}
+        <ActionIcon
+          variant="filled"
+          size={"xl"}
+          radius={"xl"}
+          onClick={handleToggle}
+        >
+          {toogle ? <IconSun size={24} /> : <IconMoon size={24} />}
         </ActionIcon>
       </Affix>
       <Card radius={0}>
