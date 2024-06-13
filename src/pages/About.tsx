@@ -1,12 +1,4 @@
-import {
-  Box,
-  Title,
-  Text,
-  Stack,
-  Blockquote,
-  Group,
-  Timeline,
-} from "@mantine/core";
+import { Title, Text, Stack, Blockquote, Group, Timeline } from "@mantine/core";
 import {
   IconBug,
   IconCode,
@@ -27,7 +19,6 @@ function About() {
       <Group>
         <Blockquote mt="xl" icon={<IconInfoCircle />} radius={"lg"}>
           <Title size={"h4"}>
-            {" "}
             I'm Muhammad Osama Iftikhar,{" "}
             <Text span inherit c={"#F08C00"} td={"underline"}>
               QA Analyst | Frontend Developer
