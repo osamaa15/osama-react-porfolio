@@ -28,6 +28,17 @@ const theme: MantineThemeOverride = {
         withBorder: true,
       },
     },
+    Flex: {
+      defaultProps: {
+        gap: "md",
+      },
+    },
+    Badge: {
+      defaultProps: {
+        radius: "xs",
+        size: "lg",
+      },
+    },
   },
 };
 

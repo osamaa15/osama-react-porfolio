@@ -1,4 +1,4 @@
-import { SimpleGrid } from "@mantine/core";
+import { Box, SimpleGrid } from "@mantine/core";
 
 type SplitLayoutProps = {
   reverse?: "ltr" | "rtl";
@@ -10,11 +10,12 @@ function SplitLayout({ reverse, children }: SplitLayoutProps) {
 
   return (
     <SimpleGrid cols={2} dir={reverse}>
-      <div>{left}</div>
-      <div>
-        {/* <Image src="./src/assets/notFound.svg" /> */}
+      <Box w={"100%"} h={"100%"}>
+        {left}
+      </Box>
+      <Box w={"100%"} h={"100%"}>
         {right}
-      </div>
+      </Box>
     </SimpleGrid>
   );
 }
