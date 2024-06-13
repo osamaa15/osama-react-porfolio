@@ -2,26 +2,26 @@ import { Box, Stack, Image, Title, Anchor } from "@mantine/core";
 
 function PageNotFound() {
   return (
-    <Box>
-      <Stack align="center">
-        <Title>
-          Looks like you've gotten lost! The page you requested is unavailable
-        </Title>
-        <Anchor
-          variant="gradient"
-          gradient={{ from: "pink", to: "yellow" }}
-          href={"/"}
-        >
-          Head back to the homepage.
-        </Anchor>
+    <Stack justify={"center"} align={"center"} mt={100}>
+      <Title>
+        Looks like you've gotten lost! The page you requested is unavailable
+      </Title>
+      <Anchor
+      fw={700}
+        variant="gradient"
+        gradient={{ from: "pink", to: "yellow" }}
+        href={"/"}
+      >
+        Head back to the homepage.
+      </Anchor>
+      <Box>
         <Image
-          w={"70%"}
-          h={"50%"}
+          fit="contain"
           src="./src/assets/notFound.svg"
           alt="Page not found"
         />
-      </Stack>
-    </Box>
+      </Box>
+    </Stack>
   );
 }
 
