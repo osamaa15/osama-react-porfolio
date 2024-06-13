@@ -9,6 +9,7 @@ import {
   Group,
   NavLink,
   ScrollArea,
+  Stack,
   Text,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
@@ -56,16 +57,20 @@ function Shell() {
           </Center>
         </AppShell.Section>
         <AppShell.Section grow my="md" component={ScrollArea}>
-          {links.map((link, index) => (
-            <NavLink
-              href="#required-for-focus"
-              key={link.label}
-              active={index === active}
-              label={link.label}
-              onClick={() => setActive(index)}
-              bg={index === active ? "white" : "transparent"}
-            />
-          ))}
+          <Stack gap={"sm"}>
+            {links.map((link, index) => (
+              <NavLink
+                variant={active === index ? "light" : "subtle"}
+                href="#required-for-focus"
+                key={link.label}
+                active={index === active}
+                label={link.label}
+                onClick={() => setActive(index)}
+                color={active === index ? "white" : "black"}
+                fw={700}
+              />
+            ))}
+          </Stack>
         </AppShell.Section>
         <AppShell.Section>
           <Card radius={"sm"} p={4} shadow="none">
