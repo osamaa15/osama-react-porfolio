@@ -80,7 +80,7 @@ function HomeInformation() {
       <Text ta={"center"} w={"55%"}>
         I am a versatile and proficient manual tester (QA Analyst) in SQA.
         Additionally, I have extensive experience in software development,
-        particularly proficient in React and Angular.
+        particularly proficient in React.
       </Text>
 
       <Box>
