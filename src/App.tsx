@@ -7,7 +7,7 @@ import { RouterProvider } from "react-router-dom";
 import routes from "./router/routes.tsx";
 import ThemeToggle from "./components/ThemeToggle.tsx";
 import { NavigationProgress } from "@mantine/nprogress";
-import "./App.css";
+
 const root = document.getElementById("root");
 if (root) {
   createRoot(root).render(
