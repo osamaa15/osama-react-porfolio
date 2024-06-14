@@ -9,7 +9,6 @@ import {
   Stack,
   Button,
   Center,
-  useComputedColorScheme,
 } from "@mantine/core";
 import SplitLayout from "../components/SplitLayout";
 import { useNavigate } from "react-router-dom";

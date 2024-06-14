@@ -6,6 +6,7 @@ import {
   Card,
   Badge,
   Flex,
+  Chip,
 } from "@mantine/core";
 
 function Skills() {
@@ -20,24 +21,61 @@ function Skills() {
       <Blockquote mt="xl">
         <Card>
           <Flex wrap={"wrap"}>
-            <Badge size="xl">Software Quality Assurance</Badge>
-            <Badge size="xl">Manual Unit Testing</Badge>
-            <Badge size="xl">GIT</Badge>
-            <Badge size="xl">HTML 5</Badge>
-            <Badge size="xl">CSS 3</Badge>
-            <Badge size="xl">Tailwind CSS</Badge>
-            <Badge size="xl">JavaScript</Badge>
-            <Badge size="xl">Typescript</Badge>
-            <Badge size="xl">React</Badge>
-            <Badge size="xl">React Native</Badge>
-            <Badge size="xl">Bootstrap</Badge>
-            <Badge size="xl">Communication Skills</Badge>
-            <Badge size="xl"> Quick Learner</Badge>
-            <Badge size="xl">Adaptive</Badge>
-            <Badge size="xl">Data Management</Badge>
-            <Badge size="xl">Detail Oriented</Badge>
-            <Badge size="xl">Computer Operation</Badge>
-            <Badge size="xl">Multi-Tasking</Badge>
+            <Chip defaultChecked size="md">
+              Software Quality Assurance
+            </Chip>
+            <Chip defaultChecked size="md">
+              Manual Unit Testing
+            </Chip>
+            <Chip defaultChecked size="md">
+              GIT
+            </Chip>
+            <Chip defaultChecked size="md">
+              HTML 5
+            </Chip>
+            <Chip defaultChecked size="md">
+              CSS 3
+            </Chip>
+            <Chip defaultChecked size="md">
+              Tailwind CSS
+            </Chip>
+            <Chip defaultChecked size="md">
+              JavaScript
+            </Chip>
+            <Chip defaultChecked size="md">
+              Typescript
+            </Chip>
+            <Chip defaultChecked size="md">
+              React
+            </Chip>
+            <Chip defaultChecked size="md">
+              React Native
+            </Chip>
+            <Chip defaultChecked size="md">
+              Bootstrap
+            </Chip>
+            <Chip defaultChecked size="md">
+              Communication Skills
+            </Chip>
+            <Chip defaultChecked size="md">
+              {" "}
+              Quick Learner
+            </Chip>
+            <Chip defaultChecked size="md">
+              Adaptive
+            </Chip>
+            <Chip defaultChecked size="md">
+              Data Management
+            </Chip>
+            <Chip defaultChecked size="md">
+              Detail Oriented
+            </Chip>
+            <Chip defaultChecked size="md">
+              Computer Operation
+            </Chip>
+            <Chip defaultChecked size="md">
+              Multi-Tasking
+            </Chip>
           </Flex>
         </Card>
       </Blockquote>

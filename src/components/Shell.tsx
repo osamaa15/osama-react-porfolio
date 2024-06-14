@@ -12,7 +12,7 @@ import {
 } from "@mantine/core";
 import { useMediaQuery, useScrollIntoView } from "@mantine/hooks";
 
-import { useState } from "react";
+// import { useState } from "react";
 import osama from "../assets/osama.png";
 import Home from "../pages/Home";
 import About from "../pages/About";
@@ -23,7 +23,7 @@ import Testimonials from "../pages/Testimonials";
 
 function Shell() {
   // Hooks
-  const [active, setActive] = useState(0);
+  // const [active, setActive] = useState(0);
   const { scrollIntoView: scrollIntoViewHome, targetRef: targetRefHome } =
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
@@ -63,12 +63,13 @@ function Shell() {
   ];
 
   //   Handle funtions
-  function handleLinkClick(index: any) {
-    setActive(index);
-  }
+  // function handleLinkClick(index: any) {
+  //   setActive(index);
+  // }
+
   // Template
   return (
-    <AppShell header={{ height: 130 }} padding="md">
+    <AppShell header={{ height: 100 }} py={"md"}>
       <AppShell.Header p={"md"}>
         <Flex h={"100%"} align={"center"} justify={"space-between"}>
           {!isMobile && (
