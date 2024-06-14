@@ -1,4 +1,4 @@
-import { Title, Text, Stack } from "@mantine/core";
+import { Title, Text, Stack,Blockquote } from "@mantine/core";
 
 function Projects() {
   return (
@@ -9,6 +9,7 @@ function Projects() {
           Jects
         </Text>
       </Title>
+      <Blockquote mt="xl"></Blockquote>
     </Stack>
   );
 }

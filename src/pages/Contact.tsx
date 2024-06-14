@@ -1,4 +1,4 @@
-import { Stack, Title, Text } from "@mantine/core";
+import { Stack, Title, Text, Blockquote } from "@mantine/core";
 
 function Contact() {
   return (
@@ -9,6 +9,8 @@ function Contact() {
           Tact
         </Text>
       </Title>
+
+      <Blockquote mt="xl"></Blockquote>
     </Stack>
   );
 }

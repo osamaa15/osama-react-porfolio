@@ -1,5 +1,6 @@
 import { Title, Text, Stack, Blockquote, Group, Timeline } from "@mantine/core";
 import {
+  IconBook,
   IconBug,
   IconCode,
   IconInfoCircle,
@@ -77,7 +78,7 @@ function About() {
             </Timeline.Item>
           </Timeline>
         </Blockquote>
-        <Blockquote mt="xl" icon={<IconZoomQuestion />}>
+        <Blockquote mt="xl" icon={<IconBook />}>
           <Title size={"h4"}>
             Work{" "}
             <Text span inherit c={"#F08C00"} td={"underline"}>
@@ -88,7 +89,7 @@ function About() {
           <Timeline active={1} bulletSize={24} lineWidth={2}>
             <Timeline.Item
               bullet={<IconBug size={24} />}
-              title="Quality Assurance"
+              title="Intelligent Software Solutions"
             >
               <Text c="dimmed" size="sm">
                 I work in web quality assurance, manually testing websites to
@@ -101,7 +102,7 @@ function About() {
             </Timeline.Item>
             <Timeline.Item
               bullet={<IconCode size={24} />}
-              title="Web Developement "
+              title="Virtual University of Pakistan"
             >
               <Text c="dimmed" size="sm">
                 In addition to Quality Assurance, I build user interfaces for

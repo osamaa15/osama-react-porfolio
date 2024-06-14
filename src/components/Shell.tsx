@@ -7,6 +7,7 @@ import {
   Group,
   Stack,
   Text,
+  Title,
 } from "@mantine/core";
 import { useMediaQuery, useScrollIntoView } from "@mantine/hooks";
 
@@ -21,6 +22,10 @@ import Contact from "../pages/Contact";
 function Shell() {
   // Hooks
   const [active, setActive] = useState(0);
+  const { scrollIntoView: scrollIntoViewHome, targetRef: targetRefHome } =
+    useScrollIntoView<HTMLDivElement>({
+      offset: 150,
+    });
   const { scrollIntoView: scrollIntoViewAbout, targetRef: targetRefAbout } =
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
@@ -31,12 +36,27 @@ function Shell() {
     });
   const isMobile = useMediaQuery("(max-width: 320px)");
   const links = [
-    { label: "HOME", scrollIntoView: scrollIntoViewAbout },
-    { label: "ABOUT ME", scrollIntoView: scrollIntoViewSkills },
-    { label: "SKILLS" },
-    { label: "PROJECTS " },
-    { label: "TESTIMONIALS " },
-    { label: "CONTACT" },
+    {
+      label: "Home",
+      // scrollRef: scrollIntoViewHome({
+      //   alignment: "start",
+      // }),
+    },
+    {
+      label: "About Me",
+      // scrollRef: scrollIntoViewAbout({
+      //   alignment: "start",
+      // }),
+    },
+    {
+      label: "Skills",
+      // scrollRef: scrollIntoViewSkills({
+      //   alignment: "start",
+      // }),
+    },
+    { label: "Projects" },
+    { label: "Testimonials" },
+    { label: "Contact" },
   ];
 
   //   Handle funtions
@@ -53,12 +73,15 @@ function Shell() {
           <Group>
             {links.map((link, index) => (
               <Group key={index}>
-                <Text
-                  onClick={() => link?.scrollIntoView}
+                <Title
+                size={"h4"}
+                  tt={"uppercase"}
+                  fw={600}
+                  // onClick={() => link?.scrollRef}
                   style={{ cursor: "pointer" }}
                 >
                   {link.label}
-                </Text>
+                </Title>
               </Group>
             ))}
           </Group>
@@ -82,7 +105,7 @@ function Shell() {
       </AppShell.Header>
       <AppShell.Main>
         <Stack>
-          <Box>
+          <Box ref={targetRefHome}>
             <Home />
           </Box>
           <Box ref={targetRefAbout}>
