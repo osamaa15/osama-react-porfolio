@@ -16,14 +16,13 @@ import { useMediaQuery } from "@mantine/hooks";
 import osama from "../assets/osama.png";
 function Home() {
   // Hooks
-  const isSmallScreen = useMediaQuery("(max-width: 768px)");
 
   // Handle funtions
 
   // Template
   return (
     <Flex align={"center"}>
-      <Card radius={isSmallScreen ? 0 : "xl"}>
+      <Card>
         <SplitLayout
           children={{
             left: <HomeInformation />,
@@ -58,7 +57,7 @@ function HomeInformation() {
         <Title tt={"uppercase"}>Hi There!</Title>
       </Box>
       <Box>
-        <Title fw={700} size={isSmallScreen ? "h5" : "h3"}>
+        <Title fw={700} size={isSmallScreen ? "h5" : "h3"} ta={"center"}>
           I'm{" "}
           <Text
             span

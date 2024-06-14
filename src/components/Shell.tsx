@@ -6,6 +6,7 @@ import {
   Container,
   Flex,
   Group,
+  Menu,
   Stack,
   Text,
   Title,
@@ -48,8 +49,7 @@ function Shell() {
       offset: 150,
     });
 
-  const isMobile = useMediaQuery("(max-width: 320px)");
-  const isTablet = useMediaQuery("(max-width: 768px)");
+  const isSmall = useMediaQuery("(max-width: 768px)");
   const links = [
     { label: "Home" },
     { label: "About Me" },
@@ -83,15 +83,19 @@ function Shell() {
   return (
     <AppShell header={{ height: 100 }} py={"md"}>
       <AppShell.Header p={"md"}>
-        <Flex h={"100%"} align={"center"} justify={"space-between"}>
-          {!isMobile || !isTablet ? (
+        <Flex
+          h={"100%"}
+          align={"center"}
+          justify={isSmall ? "end" : "space-between"}
+        >
+          {!isSmall ? (
             <>
               <div></div>
               <div></div>
             </>
           ) : null}
 
-          {!isMobile ? (
+          {!isSmall ? (
             <Group>
               {links.map((link, index) => (
                 <Group key={index}>
@@ -116,9 +120,9 @@ function Shell() {
             ""
           )}
           <Flex align={"center"}>
-            {!isMobile || !isTablet ? (
+            {!isSmall ? (
               <Text
-                size={isMobile ? "sm" : ""}
+                size={isSmall ? "sm" : ""}
                 variant="gradient"
                 gradient={{ from: "orange", to: "yellow", deg: 190 }}
                 fw={600}
@@ -127,14 +131,43 @@ function Shell() {
                 Muhammad Osama Iftikhar
               </Text>
             ) : null}
-            <Center>
-              <Avatar radius={50} size={"lg"} src={osama} />
-            </Center>
+            {isSmall ? (
+              <Menu>
+                <Menu.Target>
+                  <Avatar radius={50} size={"lg"} src={osama} />
+                </Menu.Target>
+                <Menu.Dropdown>
+                  <Menu.Label c={"orange"} fw={700}>
+                    Muhammad Osama Iftikhar
+                  </Menu.Label>
+                  {links.map((link, index) => (
+                    <Group key={index}>
+                      <Menu.Item
+                        tt={"capitalize"}
+                        onClick={() => {
+                          handleLinkClick(index);
+                          handleScrollClick(link?.label);
+                        }}
+                        td={index === active ? "underline" : ""}
+                        c={index === active ? "yellow" : ""}
+                        fw={600}
+                      >
+                        {link.label}
+                      </Menu.Item>
+                    </Group>
+                  ))}
+                </Menu.Dropdown>
+              </Menu>
+            ) : (
+              <Center>
+                <Avatar radius={50} size={"lg"} src={osama} />
+              </Center>
+            )}
           </Flex>
         </Flex>
       </AppShell.Header>
       <AppShell.Main>
-        <Container>
+        <Container fluid={!isSmall ? false : true}>
           <Stack>
             <Box ref={targetRefHome}>
               <Home />
