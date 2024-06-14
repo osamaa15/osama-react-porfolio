@@ -7,17 +7,11 @@ import {
   Text,
   Badge,
   Stack,
-  Button,
   Center,
   ActionIcon,
 } from "@mantine/core";
 import SplitLayout from "../components/SplitLayout";
-import { useNavigate } from "react-router-dom";
-import {
-  IconArrowRight,
-  IconBrandGithub,
-  IconBrandLinkedin,
-} from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import osama from "../assets/osama.png";
 function Home() {
@@ -51,7 +45,7 @@ function Home() {
 
 function HomeInformation() {
   // Hooks
-  const navigate = useNavigate();
+
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const isMobile = useMediaQuery("(max-width: 320px)");
 

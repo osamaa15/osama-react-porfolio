@@ -1,4 +1,4 @@
-import { Alert, MantineThemeOverride } from "@mantine/core";
+import { MantineThemeOverride } from "@mantine/core";
 
 const theme: MantineThemeOverride = {
   colors: {
