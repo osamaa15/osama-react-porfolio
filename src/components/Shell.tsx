@@ -2,6 +2,7 @@ import {
   AppShell,
   Avatar,
   Box,
+  Card,
   Center,
   Container,
   Flex,
@@ -10,6 +11,7 @@ import {
   Stack,
   Text,
   Title,
+  useComputedColorScheme,
 } from "@mantine/core";
 import { useMediaQuery, useScrollIntoView } from "@mantine/hooks";
 
@@ -20,10 +22,14 @@ import Skills from "../pages/Skills";
 import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
 import { useState } from "react";
+import { IconChevronDown } from "@tabler/icons-react";
 
 function Shell() {
   // Hooks
   const [active, setActive] = useState(0);
+  const theme = useComputedColorScheme("light", {
+    getInitialValueInEffect: true,
+  });
   const { scrollIntoView: scrollIntoViewHome, targetRef: targetRefHome } =
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
@@ -134,7 +140,16 @@ function Shell() {
             {isSmall ? (
               <Menu>
                 <Menu.Target>
-                  <Avatar radius={50} size={"lg"} src={osama} />
+                  <Card p={0} radius={"xl"}>
+                    <Flex align={"center"}>
+                      <Box ml={10}>
+                        <IconChevronDown
+                          color={theme === "dark" ? "yellow" : "black"}
+                        />
+                      </Box>
+                      <Avatar radius={50} size={"lg"} src={osama} />
+                    </Flex>
+                  </Card>
                 </Menu.Target>
                 <Menu.Dropdown>
                   <Menu.Label c={"orange"} fw={700}>

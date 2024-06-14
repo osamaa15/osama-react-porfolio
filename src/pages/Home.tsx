@@ -9,6 +9,7 @@ import {
   Stack,
   Center,
   ActionIcon,
+  Anchor,
 } from "@mantine/core";
 import SplitLayout from "../components/SplitLayout";
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
@@ -87,15 +88,19 @@ function HomeInformation() {
       </Text>
 
       <Flex gap={"md"}>
-        <ActionIcon>
-          <IconBrandGithub href="https://github.com/osamaa15" target="_blank" />
-        </ActionIcon>
-        <ActionIcon>
-          <IconBrandLinkedin
-            href="https://www.linkedin.com/in/muhammad-osama-iftikhar-ba7529244/"
-            target="_blank"
-          />
-        </ActionIcon>
+        <Anchor href="https://github.com/osamaa15" target="_blank">
+          <ActionIcon>
+            <IconBrandGithub />
+          </ActionIcon>
+        </Anchor>
+        <Anchor
+          href="https://www.linkedin.com/in/muhammad-osama-iftikhar-ba7529244/"
+          target="_blank"
+        >
+          <ActionIcon>
+            <IconBrandLinkedin />
+          </ActionIcon>
+        </Anchor>
       </Flex>
     </Stack>
   );
