@@ -49,6 +49,7 @@ function Shell() {
     });
 
   const isMobile = useMediaQuery("(max-width: 320px)");
+  const isTablet = useMediaQuery("(max-width: 768px)");
   const links = [
     { label: "Home" },
     { label: "About Me" },
@@ -83,35 +84,39 @@ function Shell() {
     <AppShell header={{ height: 100 }} py={"md"}>
       <AppShell.Header p={"md"}>
         <Flex h={"100%"} align={"center"} justify={"space-between"}>
-          {!isMobile && (
+          {!isMobile || !isTablet ? (
             <>
               <div></div>
               <div></div>
             </>
-          )}
+          ) : null}
 
-          <Group>
-            {links.map((link, index) => (
-              <Group key={index}>
-                <Title
-                  size={"h4"}
-                  tt={"uppercase"}
-                  fw={600}
-                  onClick={() => {
-                    handleLinkClick(index);
-                    handleScrollClick(link?.label);
-                  }}
-                  style={{ cursor: "pointer" }}
-                  td={index === active ? "underline" : ""}
-                  c={index === active ? "yellow" : ""}
-                >
-                  {link.label}
-                </Title>
-              </Group>
-            ))}
-          </Group>
+          {!isMobile ? (
+            <Group>
+              {links.map((link, index) => (
+                <Group key={index}>
+                  <Title
+                    size={"h4"}
+                    tt={"uppercase"}
+                    fw={600}
+                    onClick={() => {
+                      handleLinkClick(index);
+                      handleScrollClick(link?.label);
+                    }}
+                    style={{ cursor: "pointer" }}
+                    td={index === active ? "underline" : ""}
+                    c={index === active ? "yellow" : ""}
+                  >
+                    {link.label}
+                  </Title>
+                </Group>
+              ))}
+            </Group>
+          ) : (
+            ""
+          )}
           <Flex align={"center"}>
-            {!isMobile && (
+            {!isMobile || !isTablet ? (
               <Text
                 size={isMobile ? "sm" : ""}
                 variant="gradient"
@@ -121,7 +126,7 @@ function Shell() {
               >
                 Muhammad Osama Iftikhar
               </Text>
-            )}
+            ) : null}
             <Center>
               <Avatar radius={50} size={"lg"} src={osama} />
             </Center>
