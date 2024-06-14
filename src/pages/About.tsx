@@ -89,7 +89,20 @@ function About() {
           <Timeline active={1} bulletSize={24} lineWidth={2}>
             <Timeline.Item
               bullet={<IconBug size={24} />}
-              title="Intelligent Software Solutions"
+              title="Intelligent Software Solutions, QA Analyst"
+            >
+              <Text c="dimmed" size="sm">
+                I work in web quality assurance, manually testing websites to
+                ensure a smooth user experience. This means I click through
+                pages, fill out forms, and try different functionalities to
+                identify any bugs, glitches, or areas for improvement. My goal
+                is to catch any issues before they reach real users, helping to
+                deliver polished and user-friendly websites.
+              </Text>
+            </Timeline.Item>
+            <Timeline.Item
+              bullet={<IconBug size={24} />}
+              title="Intelligent Software Solutions, Frontend Developer"
             >
               <Text c="dimmed" size="sm">
                 I work in web quality assurance, manually testing websites to
