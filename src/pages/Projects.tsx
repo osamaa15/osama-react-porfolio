@@ -1,16 +1,16 @@
 import { Title, Text, Stack } from "@mantine/core";
 
-function Testimonials() {
+function Projects() {
   return (
     <Stack>
       <Title tt={"uppercase"} td={"underline"} ta={"center"}>
-        Testim
+        Pro
         <Text span inherit c={"#F08C00"} td={"underline"}>
-          onials
+          Jects
         </Text>
       </Title>
     </Stack>
   );
 }
 
-export default Testimonials;
+export default Projects;

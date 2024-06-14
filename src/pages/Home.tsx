@@ -19,20 +19,12 @@ import osama from "../assets/osama.png";
 function Home() {
   // Hooks
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
-  const colorScheme = useComputedColorScheme("light", {
-    getInitialValueInEffect: true,
-  });
+
   // Handle funtions
 
   // Template
   return (
-    <Flex
-      p={isSmallScreen ? 0 : "xl"}
-      align={"center"}
-      h={"100vh"}
-      w={"100vw"}
-      bg={colorScheme === "dark" ? "" : "#FFF9DB"}
-    >
+    <Flex align={"center"}>
       <Card radius={isSmallScreen ? 0 : "xl"}>
         <SplitLayout
           children={{

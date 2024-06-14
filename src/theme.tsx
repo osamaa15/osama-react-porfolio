@@ -52,6 +52,17 @@ const theme: MantineThemeOverride = {
         bg: "#F08C00",
       },
     },
+    Fieldset: {
+      defaultProps: {
+        radius: "lg",
+        variant: "filled",
+      },
+    },
+    Blockquote: {
+      defaultProps: {
+        radius: "lg",
+      },
+    },
   },
 };
 
