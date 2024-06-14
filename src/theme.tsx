@@ -1,4 +1,4 @@
-import { MantineThemeOverride } from "@mantine/core";
+import { Alert, MantineThemeOverride } from "@mantine/core";
 
 const theme: MantineThemeOverride = {
   colors: {
@@ -61,6 +61,22 @@ const theme: MantineThemeOverride = {
     Blockquote: {
       defaultProps: {
         radius: "lg",
+      },
+    },
+    Alert: {
+      defaultProps: {
+        radius: "lg",
+        variant: "light",
+      },
+    },
+    TextInput: {
+      defaultProps: {
+        radius: "md",
+      },
+    },
+    Textarea: {
+      defaultProps: {
+        radius: "md",
       },
     },
   },

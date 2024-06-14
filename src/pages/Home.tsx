@@ -9,10 +9,15 @@ import {
   Stack,
   Button,
   Center,
+  ActionIcon,
 } from "@mantine/core";
 import SplitLayout from "../components/SplitLayout";
 import { useNavigate } from "react-router-dom";
-import { IconArrowRight } from "@tabler/icons-react";
+import {
+  IconArrowRight,
+  IconBrandGithub,
+  IconBrandLinkedin,
+} from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import osama from "../assets/osama.png";
 function Home() {
@@ -88,16 +93,17 @@ function HomeInformation() {
         particularly proficient in React.
       </Text>
 
-      <Box>
-        <Button
-          tt={"uppercase"}
-          size={"lg"}
-          rightSection={<IconArrowRight />}
-          onClick={() => navigate("/section/about")}
-        >
-          More About Me
-        </Button>
-      </Box>
+      <Flex gap={"md"}>
+        <ActionIcon>
+          <IconBrandGithub href="https://github.com/osamaa15" target="_blank" />
+        </ActionIcon>
+        <ActionIcon>
+          <IconBrandLinkedin
+            href="https://www.linkedin.com/in/muhammad-osama-iftikhar-ba7529244/"
+            target="_blank"
+          />
+        </ActionIcon>
+      </Flex>
     </Stack>
   );
 }
