@@ -5,10 +5,34 @@ import {
   Blockquote,
   Card,
   Flex,
-  Chip,
+  Pill,
 } from "@mantine/core";
 
 function Skills() {
+  // Hooks
+  const skills: string[] = [
+    "Software Quality Assurance",
+    "Manual Unit Testing",
+    "GIT",
+    "HTML 5",
+    "CSS 3",
+    "Tailwind CSS",
+    "JavaScript",
+    "Typescript",
+    "React",
+    "React Native",
+    "Bootstrap",
+    "Communication Skills",
+    "Quick Learner",
+    "Adaptive",
+    "Data Management",
+    "Detail Oriented",
+    "Computer Operation",
+    "Multi-Tasking",
+  ];
+  // Handle funtions
+
+  // Template
   return (
     <Stack>
       <Title tt={"uppercase"} td={"underline"} ta={"center"}>
@@ -20,61 +44,11 @@ function Skills() {
       <Blockquote mt="xl">
         <Card>
           <Flex wrap={"wrap"}>
-            <Chip defaultChecked size="md">
-              Software Quality Assurance
-            </Chip>
-            <Chip defaultChecked size="md">
-              Manual Unit Testing
-            </Chip>
-            <Chip defaultChecked size="md">
-              GIT
-            </Chip>
-            <Chip defaultChecked size="md">
-              HTML 5
-            </Chip>
-            <Chip defaultChecked size="md">
-              CSS 3
-            </Chip>
-            <Chip defaultChecked size="md">
-              Tailwind CSS
-            </Chip>
-            <Chip defaultChecked size="md">
-              JavaScript
-            </Chip>
-            <Chip defaultChecked size="md">
-              Typescript
-            </Chip>
-            <Chip defaultChecked size="md">
-              React
-            </Chip>
-            <Chip defaultChecked size="md">
-              React Native
-            </Chip>
-            <Chip defaultChecked size="md">
-              Bootstrap
-            </Chip>
-            <Chip defaultChecked size="md">
-              Communication Skills
-            </Chip>
-            <Chip defaultChecked size="md">
-              {" "}
-              Quick Learner
-            </Chip>
-            <Chip defaultChecked size="md">
-              Adaptive
-            </Chip>
-            <Chip defaultChecked size="md">
-              Data Management
-            </Chip>
-            <Chip defaultChecked size="md">
-              Detail Oriented
-            </Chip>
-            <Chip defaultChecked size="md">
-              Computer Operation
-            </Chip>
-            <Chip defaultChecked size="md">
-              Multi-Tasking
-            </Chip>
+            {skills.map((skill, index) => (
+              <Pill size={"md"} key={index}>
+                {skill}
+              </Pill>
+            ))}
           </Flex>
         </Card>
       </Blockquote>

@@ -79,6 +79,12 @@ const theme: MantineThemeOverride = {
         radius: "md",
       },
     },
+    Pill: {
+      defaultProps: {
+        bg: "yellow",
+        c:"black",
+      },
+    },
   },
 };
 
