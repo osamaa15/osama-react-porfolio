@@ -3,6 +3,7 @@ import {
   Avatar,
   Box,
   Center,
+  Container,
   Flex,
   Group,
   Stack,
@@ -18,6 +19,7 @@ import About from "../pages/About";
 import Skills from "../pages/Skills";
 import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
+import Testimonials from "../pages/Testimonials";
 
 function Shell() {
   // Hooks
@@ -34,26 +36,27 @@ function Shell() {
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
     });
+  const {
+    scrollIntoView: scrollIntoViewProjects,
+    targetRef: targetRefProjects,
+  } = useScrollIntoView<HTMLDivElement>({
+    offset: 150,
+  });
+  const {
+    scrollIntoView: scrollIntoViewTestimonials,
+    targetRef: targetRefTestimonials,
+  } = useScrollIntoView<HTMLDivElement>({
+    offset: 150,
+  });
+  const { scrollIntoView: scrollIntoViewContact, targetRef: targetRefContact } =
+    useScrollIntoView<HTMLDivElement>({
+      offset: 150,
+    });
   const isMobile = useMediaQuery("(max-width: 320px)");
   const links = [
-    {
-      label: "Home",
-      // scrollRef: scrollIntoViewHome({
-      //   alignment: "start",
-      // }),
-    },
-    {
-      label: "About Me",
-      // scrollRef: scrollIntoViewAbout({
-      //   alignment: "start",
-      // }),
-    },
-    {
-      label: "Skills",
-      // scrollRef: scrollIntoViewSkills({
-      //   alignment: "start",
-      // }),
-    },
+    { label: "Home" },
+    { label: "About Me" },
+    { label: "Skills" },
     { label: "Projects" },
     { label: "Testimonials" },
     { label: "Contact" },
@@ -68,16 +71,35 @@ function Shell() {
     <AppShell header={{ height: 130 }} padding="md">
       <AppShell.Header p={"md"}>
         <Flex h={"100%"} align={"center"} justify={"space-between"}>
-          <div></div>
-          <div></div>
+          {!isMobile && (
+            <>
+              <div></div>
+              <div></div>
+            </>
+          )}
+
           <Group>
             {links.map((link, index) => (
               <Group key={index}>
                 <Title
-                size={"h4"}
+                  size={"h4"}
                   tt={"uppercase"}
                   fw={600}
-                  // onClick={() => link?.scrollRef}
+                  onClick={() =>
+                    link?.label === "Home"
+                      ? scrollIntoViewHome()
+                      : link?.label === "About Me"
+                      ? scrollIntoViewAbout()
+                      : link?.label === "Skills"
+                      ? scrollIntoViewSkills()
+                      : link?.label === "Projects"
+                      ? scrollIntoViewProjects()
+                      : link?.label === "Testimonials"
+                      ? scrollIntoViewTestimonials()
+                      : link?.label === "Contact"
+                      ? scrollIntoViewContact()
+                      : null
+                  }
                   style={{ cursor: "pointer" }}
                 >
                   {link.label}
@@ -104,23 +126,28 @@ function Shell() {
         </Flex>
       </AppShell.Header>
       <AppShell.Main>
-        <Stack>
-          <Box ref={targetRefHome}>
-            <Home />
-          </Box>
-          <Box ref={targetRefAbout}>
-            <About />
-          </Box>
-          <Box ref={targetRefSkills}>
-            <Skills />
-          </Box>
-          <Box>
-            <Projects />
-          </Box>
-          <Box>
-            <Contact />
-          </Box>
-        </Stack>
+        <Container>
+          <Stack>
+            <Box ref={targetRefHome}>
+              <Home />
+            </Box>
+            <Box ref={targetRefAbout}>
+              <About />
+            </Box>
+            <Box ref={targetRefSkills}>
+              <Skills />
+            </Box>
+            <Box ref={targetRefProjects}>
+              <Projects />
+            </Box>
+            <Box ref={targetRefTestimonials}>
+              <Testimonials />
+            </Box>
+            <Box ref={targetRefContact}>
+              <Contact />
+            </Box>
+          </Stack>
+        </Container>
       </AppShell.Main>
     </AppShell>
   );
