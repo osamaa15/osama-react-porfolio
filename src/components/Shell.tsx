@@ -19,7 +19,6 @@ import About from "../pages/About";
 import Skills from "../pages/Skills";
 import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
-import Testimonials from "../pages/Testimonials";
 
 function Shell() {
   // Hooks
@@ -42,12 +41,7 @@ function Shell() {
   } = useScrollIntoView<HTMLDivElement>({
     offset: 150,
   });
-  const {
-    scrollIntoView: scrollIntoViewTestimonials,
-    targetRef: targetRefTestimonials,
-  } = useScrollIntoView<HTMLDivElement>({
-    offset: 150,
-  });
+
   const { scrollIntoView: scrollIntoViewContact, targetRef: targetRefContact } =
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
@@ -58,7 +52,7 @@ function Shell() {
     { label: "About Me" },
     { label: "Skills" },
     { label: "Projects" },
-    { label: "Testimonials" },
+    // { label: "Testimonials" },
     { label: "Contact" },
   ];
 
@@ -95,8 +89,6 @@ function Shell() {
                       ? scrollIntoViewSkills()
                       : link?.label === "Projects"
                       ? scrollIntoViewProjects()
-                      : link?.label === "Testimonials"
-                      ? scrollIntoViewTestimonials()
                       : link?.label === "Contact"
                       ? scrollIntoViewContact()
                       : null
@@ -141,9 +133,7 @@ function Shell() {
             <Box ref={targetRefProjects}>
               <Projects />
             </Box>
-            <Box ref={targetRefTestimonials}>
-              <Testimonials />
-            </Box>
+
             <Box ref={targetRefContact}>
               <Contact />
             </Box>

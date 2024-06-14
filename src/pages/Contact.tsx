@@ -1,4 +1,5 @@
 import { Stack, Title, Text, Blockquote } from "@mantine/core";
+import { IconAddressBook } from "@tabler/icons-react";
 
 function Contact() {
   return (
@@ -10,7 +11,7 @@ function Contact() {
         </Text>
       </Title>
 
-      <Blockquote mt="xl"></Blockquote>
+      <Blockquote mt="xl" icon={<IconAddressBook />}></Blockquote>
     </Stack>
   );
 }

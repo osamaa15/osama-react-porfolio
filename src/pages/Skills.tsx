@@ -4,7 +4,6 @@ import {
   Text,
   Blockquote,
   Card,
-  Badge,
   Flex,
   Chip,
 } from "@mantine/core";

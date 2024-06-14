@@ -1,4 +1,5 @@
 import { Title, Text, Stack, Blockquote } from "@mantine/core";
+import { Icon360 } from "@tabler/icons-react";
 
 function Testimonials() {
   return (
@@ -9,7 +10,7 @@ function Testimonials() {
           onials
         </Text>
       </Title>
-      <Blockquote mt="xl"></Blockquote>
+      <Blockquote mt="xl" icon={<Icon360 />}></Blockquote>
     </Stack>
   );
 }
