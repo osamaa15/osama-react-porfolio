@@ -12,21 +12,22 @@ import {
 } from "@mantine/core";
 import { useMediaQuery, useScrollIntoView } from "@mantine/hooks";
 
-// import { useState } from "react";
 import osama from "../assets/osama.png";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Skills from "../pages/Skills";
 import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
+import { useState } from "react";
 
 function Shell() {
   // Hooks
-  // const [active, setActive] = useState(0);
+  const [active, setActive] = useState(0);
   const { scrollIntoView: scrollIntoViewHome, targetRef: targetRefHome } =
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
     });
+
   const { scrollIntoView: scrollIntoViewAbout, targetRef: targetRefAbout } =
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
@@ -46,6 +47,7 @@ function Shell() {
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
     });
+
   const isMobile = useMediaQuery("(max-width: 320px)");
   const links = [
     { label: "Home" },
@@ -57,9 +59,24 @@ function Shell() {
   ];
 
   //   Handle funtions
-  // function handleLinkClick(index: any) {
-  //   setActive(index);
-  // }
+  function handleLinkClick(index: any) {
+    setActive(index);
+  }
+  function handleScrollClick(label: any) {
+    if (label === "Home") {
+      scrollIntoViewHome();
+    } else if (label === "About Me") {
+      scrollIntoViewAbout();
+    } else if (label === "Skills") {
+      scrollIntoViewSkills();
+    } else if (label === "Projects") {
+      scrollIntoViewProjects();
+    } else if (label === "Contact") {
+      scrollIntoViewContact();
+    } else {
+      return null;
+    }
+  }
 
   // Template
   return (
@@ -80,20 +97,13 @@ function Shell() {
                   size={"h4"}
                   tt={"uppercase"}
                   fw={600}
-                  onClick={() =>
-                    link?.label === "Home"
-                      ? scrollIntoViewHome()
-                      : link?.label === "About Me"
-                      ? scrollIntoViewAbout()
-                      : link?.label === "Skills"
-                      ? scrollIntoViewSkills()
-                      : link?.label === "Projects"
-                      ? scrollIntoViewProjects()
-                      : link?.label === "Contact"
-                      ? scrollIntoViewContact()
-                      : null
-                  }
+                  onClick={() => {
+                    handleLinkClick(index);
+                    handleScrollClick(link?.label);
+                  }}
                   style={{ cursor: "pointer" }}
+                  td={index === active ? "underline" : ""}
+                  c={index === active ? "yellow" : ""}
                 >
                   {link.label}
                 </Title>
