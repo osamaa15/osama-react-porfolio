@@ -1,15 +1,23 @@
-import { Affix, ActionIcon } from "@mantine/core";
+import {
+  Affix,
+  ActionIcon,
+  useMantineColorScheme,
+  useComputedColorScheme,
+} from "@mantine/core";
 import { IconSun, IconMoon } from "@tabler/icons-react";
-import { useState } from "react";
 
 function ThemeToggle() {
   // Hooks
-  const [toogle, setToogle] = useState(false);
+  const { setColorScheme } = useMantineColorScheme();
+  const computedColorScheme = useComputedColorScheme("light", {
+    getInitialValueInEffect: true,
+  });
 
   // Handle funtions
-  function handleToggle() {
-    setToogle(!toogle);
+  function handleThemeToggle() {
+    setColorScheme(computedColorScheme === "light" ? "dark" : "light");
   }
+
   // Template
   return (
     <Affix position={{ bottom: 10, right: 10 }}>
@@ -18,9 +26,13 @@ function ThemeToggle() {
         bg={"#F08C00"}
         size={"xl"}
         radius={"xl"}
-        onClick={handleToggle}
+        onClick={handleThemeToggle}
       >
-        {toogle ? <IconSun size={24} /> : <IconMoon size={24} />}
+        {computedColorScheme === "dark" ? (
+          <IconSun size={24} />
+        ) : (
+          <IconMoon size={24} />
+        )}
       </ActionIcon>
     </Affix>
   );

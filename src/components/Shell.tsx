@@ -3,7 +3,6 @@ import {
   AppShell,
   Avatar,
   Burger,
-  Button,
   Card,
   Center,
   Group,
@@ -15,8 +14,8 @@ import {
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { IconArrowLeft } from "@tabler/icons-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import About from "../pages/About";
+import { Outlet, useNavigate } from "react-router-dom";
+import osama from "../assets/osama.png";
 
 function Shell() {
   // Hooks
@@ -25,13 +24,16 @@ function Shell() {
   const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width: 320px)");
   const links = [
-    { label: "ABOUT ME" },
-    // { label: "RESUME" },
-    // { label: "TESTIMONIALS " },
-    // { label: "CONTACT" },
+    { label: "ABOUT ME", route: "/section/about" },
+    { label: "RESUME", route: "/section/resume" },
+    { label: "TESTIMONIALS ", route: "/section/testimonials" },
+    { label: "CONTACT", route: "/section/contact" },
   ];
   //   Handle funtions
-
+  function handleLinkClick(index: any, route: any) {
+    setActive(index );
+    navigate(route);
+  }
   // Template
   return (
     <AppShell
@@ -56,7 +58,7 @@ function Shell() {
       <AppShell.Navbar p="md" bg={"yellow"}>
         <AppShell.Section>
           <Center>
-            <Avatar radius={50} size={"xl"} src="./src/assets/osama.png" />
+            <Avatar radius={50} size={"xl"} src={osama} />
           </Center>
         </AppShell.Section>
         <AppShell.Section grow my="md" component={ScrollArea}>
@@ -64,11 +66,10 @@ function Shell() {
             {links.map((link, index) => (
               <NavLink
                 variant={active === index ? "light" : "subtle"}
-                href="#required-for-focus"
                 key={link?.label}
                 active={index === active}
                 label={link?.label}
-                onClick={() => setActive(index)}
+                onClick={() => handleLinkClick(index, link?.route)}
                 color={active === index ? "white" : "black"}
                 fw={700}
               />
@@ -84,19 +85,16 @@ function Shell() {
                 navigate("/");
               }}
             >
-              <Button
-                size="lg"
-                variant="transparent"
-                leftSection={<IconArrowLeft />}
-              >
+              <IconArrowLeft />
+              <Text size="lg" variant="transparent">
                 HOME
-              </Button>
+              </Text>
             </ActionIcon>
           </Card>
         </AppShell.Section>
       </AppShell.Navbar>
       <AppShell.Main>
-        <About />
+        <Outlet />
       </AppShell.Main>
     </AppShell>
   );

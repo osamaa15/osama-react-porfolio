@@ -49,7 +49,7 @@ const theme: MantineThemeOverride = {
       defaultProps: {
         radius: "xl",
         size: "lg",
-        bg:"#F08C00"
+        bg: "#F08C00",
       },
     },
   },

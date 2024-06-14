@@ -9,20 +9,31 @@ import {
   Stack,
   Button,
   Center,
+  useComputedColorScheme,
 } from "@mantine/core";
 import SplitLayout from "../components/SplitLayout";
 import { useNavigate } from "react-router-dom";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
+import osama from "../assets/osama.png";
 function Home() {
   // Hooks
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
+  const colorScheme = useComputedColorScheme("light", {
+    getInitialValueInEffect: true,
+  });
   // Handle funtions
 
   // Template
   return (
-    <Flex p={isSmallScreen ? 0 : "xl"} align={"center"} h={"100vh"} w={"100vw"}>
-      <Card bg={"#FFF9DB"} radius={isSmallScreen ? 0 : "xl"}>
+    <Flex
+      p={isSmallScreen ? 0 : "xl"}
+      align={"center"}
+      h={"100vh"}
+      w={"100vw"}
+      bg={colorScheme === "dark" ? "" : "#FFF9DB"}
+    >
+      <Card radius={isSmallScreen ? 0 : "xl"}>
         <SplitLayout
           children={{
             left: <HomeInformation />,
@@ -30,11 +41,7 @@ function Home() {
               <Card withBorder={false} bg={"#FCC419"} p={0}>
                 <Box>
                   <Center>
-                    <Image
-                      radius={"lg"}
-                      fit="contain"
-                      src="./src/assets/osama.png"
-                    />
+                    <Image radius={"lg"} fit="contain" src={osama} />
                   </Center>
                 </Box>
               </Card>
@@ -95,7 +102,7 @@ function HomeInformation() {
           tt={"uppercase"}
           size={"lg"}
           rightSection={<IconArrowRight />}
-          onClick={() => navigate("/about")}
+          onClick={() => navigate("/section/about")}
         >
           More About Me
         </Button>
