@@ -101,7 +101,7 @@ function About() {
               title="Intelligent Software Solutions, QA Analyst"
             >
               <Text c="dimmed" size="sm" tt={"uppercase"}>
-                2012 - present
+                2024 - present
               </Text>
               <List size="sm">
                 <List.Item>
@@ -176,7 +176,7 @@ function About() {
               title="Intelligent Software Solutions, Frontend Developer"
             >
               <Text c="dimmed" size="sm" tt={"uppercase"}>
-                2012 - present
+                2021 - present
               </Text>
               <List size="sm">
                 <List.Item>
