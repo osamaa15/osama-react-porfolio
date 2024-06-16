@@ -2,15 +2,23 @@ import { createBrowserRouter } from "react-router-dom";
 import PageNotFound from "../pages/PageNotFound";
 import Shell from "../components/Shell";
 import CommentList from "../pages/CommentList";
+import Admin from "../pages/Admin";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <Shell />,
+    children: [],
   },
   {
-    path: "/Z87c6GDUeduGbDCa9qCjc2MOeLJ6mIFiois",
-    element: <CommentList />,
+    path: "/admin",
+    element: <Admin />,
+    children: [
+      {
+        path: "comments",
+        element: <CommentList />,
+      },
+    ],
   },
 
   { path: "*", element: <PageNotFound /> },

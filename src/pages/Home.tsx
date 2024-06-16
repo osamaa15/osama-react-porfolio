@@ -15,7 +15,7 @@ import SplitLayout from "../components/SplitLayout";
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import osama from "../assets/osama.png";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 function Home() {
   // Hooks
 
@@ -49,7 +49,7 @@ function HomeInformation() {
 
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const isMobile = useMediaQuery("(max-width: 320px)");
-  const n = useNavigate();
+  // const n = useNavigate();
   // Handle funtions
 
   // Template
@@ -103,9 +103,7 @@ function HomeInformation() {
           </ActionIcon>
         </Anchor>
 
-        <button onClick={() => n("/Z87c6GDUeduGbDCa9qCjc2MOeLJ6mIFiois")}>
-          click
-        </button>
+        {/* <button onClick={() => n("/comments")}>click</button> */}
       </Flex>
     </Stack>
   );
