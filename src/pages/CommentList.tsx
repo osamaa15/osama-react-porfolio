@@ -20,19 +20,19 @@ function CommentList() {
   // Hooks
   const [comments, setComments] = useState<any>([]);
   const [processing, setProcessing] = useState<boolean>(false);
-  const [overlayProcessing, setOverlayProcessing] = useState<boolean>(false);
+  //   const [overlayProcessing, setOverlayProcessing] = useState<boolean>(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setOverlayProcessing(true);
+    // setOverlayProcessing(true);
     axios
       .get("https://comment-system-be.vercel.app/api/comments")
       .then((res) => {
         setComments(res?.data);
-        setOverlayProcessing(false);
+        // setOverlayProcessing(false);
       })
       .catch((err) => {
-        setOverlayProcessing(false);
+        // setOverlayProcessing(false);
         notifications.show({
           title: "Oh no!",
           message:
