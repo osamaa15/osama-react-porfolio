@@ -8,17 +8,14 @@ const routes = createBrowserRouter([
   {
     path: "/",
     element: <Shell />,
-    children: [],
   },
   {
-    path: "/admin",
+    path: "admin",
     element: <Admin />,
-    children: [
-      {
-        path: "comments",
-        element: <CommentList />,
-      },
-    ],
+  },
+  {
+    path: "comments",
+    element: <CommentList />,
   },
 
   { path: "*", element: <PageNotFound /> },
