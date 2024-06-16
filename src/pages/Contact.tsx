@@ -12,14 +12,85 @@ import {
   Button,
   Fieldset,
 } from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { notifications } from "@mantine/notifications";
 import {
   IconAddressBook,
   IconBrandWhatsapp,
   IconMail,
   IconPhone,
 } from "@tabler/icons-react";
+import axios from "axios";
+import { useState } from "react";
 
 function Contact() {
+  // Hooks
+  const [processing, setProcessing] = useState<boolean>(false);
+  const [response, setResponse] = useState<any>(null);
+  const { values, getInputProps } = useForm({
+    initialValues: {
+      name: "",
+      email: "",
+      comment: "",
+    },
+  });
+
+  // Handle Functions
+
+  function handleSubmitComment(e: any) {
+    setProcessing(true);
+    axios
+      .post("https://comment-system-be.vercel.app/api/comments", values)
+      .then((res) => {
+        console.log(res);
+        setResponse(res?.data?.message);
+        setProcessing(false);
+        values.name = "";
+        values.email = "";
+        values.comment = "";
+
+        notifications.show({
+          title: "Hurray!",
+          message:
+            response ??
+            "Thanks for your comment, we will get back to you soon!",
+          radius: "md",
+          withBorder: true,
+          autoClose: 3000,
+          withCloseButton: true,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        setProcessing(false);
+        values.name = "";
+        values.email = "";
+        values.comment = "";
+
+        notifications.show({
+          title: "Oh no!",
+          message: "Something went wrong, please try again later",
+          radius: "md",
+          color: "red",
+          withBorder: true,
+          autoClose: 3000,
+          withCloseButton: true,
+        });
+      });
+    e.preventDefault();
+  }
+  // useEffect(() => {
+  //   axios
+  //     .get("https://comment-system-be.vercel.app/api/comments")
+  //     .then((res) => {
+  //       console.log(res?.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
+
+  // Template
   return (
     <Stack>
       <Title tt={"uppercase"} td={"underline"} ta={"center"}>
@@ -43,25 +114,38 @@ function Contact() {
               </Anchor>
             </Alert>
           </Flex>
-          <form>
+          <form onSubmit={handleSubmitComment}>
             <Fieldset variant="default" legend="SHARE YOUR BUSINESS IDEA">
               <Stack>
-                <TextInput placeholder="John Doe" label="Name" required />
+                <TextInput
+                  placeholder="John Doe"
+                  label="Name"
+                  required
+                  {...getInputProps("name")}
+                />
                 <TextInput
                   placeholder="johndoe@gmail.com"
                   label="Email"
                   required
                   type="email"
+                  {...getInputProps("email")}
                 />
                 <Textarea
                   placeholder="Lets talk!"
                   label="Comments"
                   resize="vertical"
                   required
+                  {...getInputProps("comment")}
                 />
-
                 <Group justify="end">
-                  <Button variant="outline">Send</Button>
+                  <Button
+                    type="submit"
+                    variant="outline"
+                    disabled={processing}
+                    loading={processing}
+                  >
+                    Send
+                  </Button>
                 </Group>
               </Stack>
             </Fieldset>
