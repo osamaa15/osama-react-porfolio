@@ -78,16 +78,6 @@ function Contact() {
       });
     e.preventDefault();
   }
-  // useEffect(() => {
-  //   axios
-  //     .get("https://comment-system-be.vercel.app/api/comments")
-  //     .then((res) => {
-  //       console.log(res?.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
 
   // Template
   return (
