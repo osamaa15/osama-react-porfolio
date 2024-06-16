@@ -48,7 +48,6 @@ function Contact() {
         values.name = "";
         values.email = "";
         values.comment = "";
-
         notifications.show({
           title: "Hurray!",
           message:
