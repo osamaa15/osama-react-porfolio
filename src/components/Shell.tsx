@@ -24,7 +24,7 @@ import Skills from "../pages/Skills";
 import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
 import { useState } from "react";
-import { IconChevronDown, IconLock, IconServer } from "@tabler/icons-react";
+import { IconChevronDown, IconServer } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 
 function Shell() {
