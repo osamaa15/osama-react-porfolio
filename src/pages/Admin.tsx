@@ -19,7 +19,7 @@ function Admin() {
       navigate("/comments");
       notifications.show({
         title: "Verified!!",
-        message: "Key is correct! Redirecting to comments page...",
+        message: "Key is correct!",
         radius: "md",
         withBorder: true,
         autoClose: 3000,
@@ -43,13 +43,14 @@ function Admin() {
       <form onSubmit={handleKeyVerification}>
         <Stack>
           <TextInput
-          required
+            required
             label="KEY"
             description="Please enter the key"
             placeholder="****************"
             {...getInputProps("key")}
+            size="md"
           />
-          <Group>
+          <Group grow>
             <Button onClick={() => navigate("/")} variant="outline">
               Go back
             </Button>
