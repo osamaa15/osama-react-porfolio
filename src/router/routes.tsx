@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import PageNotFound from "../pages/PageNotFound";
+// import PageNotFound from "../pages/PageNotFound";
 import Shell from "../components/Shell";
 import CommentList from "../pages/CommentList";
 import Admin from "../pages/Admin";
