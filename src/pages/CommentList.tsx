@@ -8,6 +8,7 @@ import {
   Modal,
   Stack,
   Table,
+  TableCaption,
   Text,
   Title,
 } from "@mantine/core";
@@ -35,7 +36,6 @@ function CommentList() {
       .then((res) => {
         setComments(res?.data);
         setOverlayProcessing(false);
-        console.log(res?.data);
       })
       .catch((err) => {
         setOverlayProcessing(false);
@@ -49,9 +49,6 @@ function CommentList() {
           autoClose: 3000,
           withCloseButton: true,
         });
-      })
-      .finally(() => {
-        setOverlayProcessing(false);
       });
   }, []);
 
@@ -59,9 +56,9 @@ function CommentList() {
 
   const rows = comments.map((comment: any, index: number) => (
     <Table.Tr key={index}>
-      <Table.Td>{comment.name}</Table.Td>
-      <Table.Td>{comment.email}</Table.Td>
-      <Table.Td>{comment.comment}</Table.Td>
+      <Table.Td>{comment?.name}</Table.Td>
+      <Table.Td>{comment?.email}</Table.Td>
+      <Table.Td>{comment?.comment}</Table.Td>
       <Table.Td>
         <ActionIcon
           onClick={() => {
@@ -80,7 +77,7 @@ function CommentList() {
       .delete("https://comment-system-be.vercel.app/api/comments", {
         data: { id },
       })
-      .then((res) => {
+      .then(() => {
         notifications.show({
           title: "Hurray!",
           message: "Record Deleted Successfully.",
@@ -90,7 +87,6 @@ function CommentList() {
           withCloseButton: true,
         });
         handleRefreshCommentsRecords(false);
-        console.log(res?.data);
       })
       .catch((err) => {
         notifications.show({
@@ -104,7 +100,6 @@ function CommentList() {
           withCloseButton: true,
         });
         handleRefreshCommentsRecords(false);
-        console.log(err?.data);
       });
   }
 
@@ -180,6 +175,7 @@ function CommentList() {
               withTableBorder
               withColumnBorders
               pos={"relative"}
+              captionSide="bottom"
             >
               <LoadingOverlay visible={processing} />
               <Table.Thead>
@@ -190,7 +186,13 @@ function CommentList() {
                   <Table.Th>Actions</Table.Th>
                 </Table.Tr>
               </Table.Thead>
-              <Table.Tbody>{rows}</Table.Tbody>
+              {comments.length > 0 ? (
+                <>
+                  <Table.Tbody>{rows}</Table.Tbody>
+                </>
+              ) : (
+                <TableCaption>No Records Found</TableCaption>
+              )}
             </Table>
           </Table.ScrollContainer>
           <Group justify="end">
