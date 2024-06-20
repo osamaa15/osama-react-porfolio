@@ -58,7 +58,7 @@ function Shell() {
   const isSmall = useMediaQuery("(max-width: 768px)");
   const links = [
     { label: "Home" },
-    { label: "About" },
+    { label: "About Me" },
     { label: "Skills" },
     { label: "Projects" },
     // { label: "Testimonials" },
