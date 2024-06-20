@@ -20,7 +20,7 @@ function CommentList() {
   // Hooks
   const [comments, setComments] = useState<any>([]);
   const [processing, setProcessing] = useState<boolean>(false);
-  //   const [overlayProcessing, setOverlayProcessing] = useState<boolean>(false);
+  const [overlayProcessing, setOverlayProcessing] = useState<boolean>(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,10 +29,10 @@ function CommentList() {
       .get("https://comment-system-be.vercel.app/api/comments")
       .then((res) => {
         setComments(res?.data);
-        // setOverlayProcessing(false);
+        setOverlayProcessing(false);
       })
       .catch((err) => {
-        // setOverlayProcessing(false);
+        setOverlayProcessing(false);
         notifications.show({
           title: "Oh no!",
           message:
@@ -112,7 +112,14 @@ function CommentList() {
               scrollBehavior: "smooth",
             }}
           >
-            <Table striped highlightOnHover withTableBorder withColumnBorders pos={"relative"}>
+            <Table
+              striped
+              highlightOnHover
+              withTableBorder
+              withColumnBorders
+              pos={"relative"}
+            >
+              <LoadingOverlay visible={overlayProcessing} />
               <LoadingOverlay visible={processing} />
               <Table.Thead>
                 <Table.Tr>
