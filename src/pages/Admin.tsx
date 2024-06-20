@@ -17,7 +17,7 @@ function Admin() {
     e.preventDefault();
 
     if (values.key === "@qwertyuiop15") {
-      navigate("/comments");
+      navigate("/_comments");
       notifications.show({
         title: "Verified!!",
         message: "Key is correct!",
