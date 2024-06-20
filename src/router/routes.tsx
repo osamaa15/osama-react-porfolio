@@ -10,11 +10,11 @@ const routes = createBrowserRouter([
     element: <Shell />,
   },
   {
-    path: "/admin",
+    path: "/_admin",
     element: <Admin />,
   },
   {
-    path: "/comments",
+    path: "/_comments",
     element: <CommentList />,
   },
 
