@@ -2,11 +2,9 @@ import {
   AppShell,
   Avatar,
   Box,
-  Button,
   Card,
   Center,
   Container,
-  Divider,
   Flex,
   Group,
   Menu,
@@ -24,8 +22,7 @@ import Skills from "../pages/Skills";
 import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
 import { useState } from "react";
-import { IconChevronDown, IconServer } from "@tabler/icons-react";
-import { useNavigate } from "react-router-dom";
+import { IconChevronDown } from "@tabler/icons-react";
 
 function Shell() {
   // Hooks
@@ -57,7 +54,7 @@ function Shell() {
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
     });
-  const navigate = useNavigate();
+
   const isSmall = useMediaQuery("(max-width: 768px)");
   const links = [
     { label: "Home" },
@@ -174,44 +171,16 @@ function Shell() {
                       </Menu.Item>
                     </Group>
                   ))}
-                  <Divider />
-
-                  <Menu.Item
-                    onClick={() => {
-                      navigate("/admin");
-                    }}
-                    leftSection={<IconServer size={18} color="red" />}
-                  >
-                    <Text fw={600} tt={"capitalize"} size="sm">
-                      Admin
-                    </Text>
-                  </Menu.Item>
                 </Menu.Dropdown>
               </Menu>
             ) : (
               <Center>
-                <Menu>
-                  <Menu.Target>
-                    <Avatar
-                      radius={50}
-                      size={"lg"}
-                      src={osama}
-                      style={{ cursor: "pointer" }}
-                    />
-                  </Menu.Target>
-                  <Menu.Dropdown>
-                    <Button
-                      size="sm"
-                      variant="subtle"
-                      leftSection={<IconServer size={18} color="red" />}
-                      onClick={() => {
-                        navigate("/admin");
-                      }}
-                    >
-                      Admin
-                    </Button>
-                  </Menu.Dropdown>
-                </Menu>
+                <Avatar
+                  radius={50}
+                  size={"lg"}
+                  src={osama}
+                  style={{ cursor: "pointer" }}
+                />
               </Center>
             )}
           </Flex>
