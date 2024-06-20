@@ -77,7 +77,9 @@ function CommentList() {
 
   function handleDeleteCommentRecord(_id: string) {
     axios
-      .delete(`https://comment-system-be.vercel.app/api/comments/${_id}`)
+      .delete("https://comment-system-be.vercel.app/api/comments", {
+        data: { _id },
+      })
       .then((res) => {
         notifications.show({
           title: "Hurray!",
@@ -205,12 +207,11 @@ function CommentList() {
       <Modal
         opened={opened}
         onClose={close}
-        title="Confirm Delete?"
+        title="This action will permanently delete the selected record!"
         size={"lg"}
         centered
       >
         <Stack>
-          <Text>This action will permanently delete the selected record!</Text>
           <Text size="sm">
             Selected Record: {userCommentsRecord?.name} (
             {userCommentsRecord?.email})
@@ -220,7 +221,7 @@ function CommentList() {
               Cancel
             </Button>
             <Button
-              variant="outline"
+              color={"red"}
               onClick={() => {
                 handleDeleteCommentRecord(userCommentsRecord?.["_id"]);
                 close();

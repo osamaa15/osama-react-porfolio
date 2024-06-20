@@ -176,6 +176,8 @@ function Shell() {
             ) : (
               <Center>
                 <Avatar radius={50} size={"lg"} src={osama} />
+
+                
               </Center>
             )}
           </Flex>
