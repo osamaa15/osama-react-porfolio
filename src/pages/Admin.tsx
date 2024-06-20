@@ -1,6 +1,7 @@
 import { Button, Flex, Group, Stack, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
+import { IconChevronLeft } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 
 function Admin() {
@@ -50,11 +51,11 @@ function Admin() {
             {...getInputProps("key")}
             size="md"
           />
-          <Group grow>
-            <Button onClick={() => navigate("/")} variant="outline">
-              Go back
+          <Group justify="center" >
+            <Button onClick={() => navigate("/")} variant="outline"  leftSection={<IconChevronLeft />}>
+             Back
             </Button>
-            <Button type="submit" variant="outline">
+            <Button type="submit" variant="outline"  color="green">
               Verify
             </Button>
           </Group>
