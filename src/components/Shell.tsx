@@ -175,12 +175,7 @@ function Shell() {
               </Menu>
             ) : (
               <Center>
-                <Avatar
-                  radius={50}
-                  size={"lg"}
-                  src={osama}
-                  style={{ cursor: "pointer" }}
-                />
+                <Avatar radius={50} size={"lg"} src={osama} />
               </Center>
             )}
           </Flex>
