@@ -18,7 +18,7 @@ const routes = createBrowserRouter([
     element: <CommentList />,
   },
 
-  { path: "*", element: <PageNotFound /> },
+  // { path: "*", element: <PageNotFound /> },
 ]);
 
 export default routes;
