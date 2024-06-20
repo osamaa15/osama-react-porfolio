@@ -6,6 +6,7 @@ import {
   Card,
   Center,
   Container,
+  Divider,
   Flex,
   Group,
   Menu,
@@ -23,7 +24,7 @@ import Skills from "../pages/Skills";
 import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
 import { useState } from "react";
-import { IconChevronDown, IconLock } from "@tabler/icons-react";
+import { IconChevronDown, IconLock, IconServer } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 
 function Shell() {
@@ -63,7 +64,6 @@ function Shell() {
     { label: "About Me" },
     { label: "Skills" },
     { label: "Projects" },
-    // { label: "Testimonials" },
     { label: "Contact" },
   ];
 
@@ -114,6 +114,7 @@ function Shell() {
                     onClick={() => {
                       handleLinkClick(index);
                       handleScrollClick(link?.label);
+                      // navigate(link?.path);
                     }}
                     style={{ cursor: "pointer" }}
                     td={index === active ? "underline" : ""}
@@ -169,10 +170,22 @@ function Shell() {
                         c={index === active ? "yellow" : ""}
                         fw={600}
                       >
-                        {link.label}
+                        {link?.label}
                       </Menu.Item>
                     </Group>
                   ))}
+                  <Divider />
+
+                  <Menu.Item
+                    onClick={() => {
+                      navigate("/admin");
+                    }}
+                    leftSection={<IconServer size={18} color="red" />}
+                  >
+                    <Text fw={600} tt={"capitalize"} size="sm">
+                      Admin
+                    </Text>
+                  </Menu.Item>
                 </Menu.Dropdown>
               </Menu>
             ) : (
@@ -190,7 +203,7 @@ function Shell() {
                     <Button
                       size="sm"
                       variant="subtle"
-                      leftSection={<IconLock />}
+                      leftSection={<IconServer size={18} color="red" />}
                       onClick={() => {
                         navigate("/admin");
                       }}

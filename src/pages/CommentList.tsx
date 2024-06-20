@@ -143,13 +143,18 @@ function CommentList() {
       });
   }
 
+  function handleNavigateBack() {
+    navigate("/");
+    localStorage.removeItem("token");
+  }
+
   // Template
   return (
     <Container>
       <Flex justify={"center"} align={"center"} h={"100vh"}>
         <Stack pos={"relative"}>
           <Group justify="center" align="center">
-            <ActionIcon onClick={() => navigate("/")}>
+            <ActionIcon onClick={handleNavigateBack}>
               <IconChevronLeft />
             </ActionIcon>
             <Title tt={"uppercase"} td={"underline"} ta={"center"}>

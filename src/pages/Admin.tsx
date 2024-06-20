@@ -26,6 +26,8 @@ function Admin() {
         autoClose: 3000,
         withCloseButton: true,
       });
+
+      localStorage.setItem("token", values.key);
     } else {
       notifications.show({
         title: "Invalid Key!",
@@ -51,11 +53,15 @@ function Admin() {
             {...getInputProps("key")}
             size="md"
           />
-          <Group justify="center" >
-            <Button onClick={() => navigate("/")} variant="outline"  leftSection={<IconChevronLeft />}>
-             Back
+          <Group justify="center">
+            <Button
+              onClick={() => navigate("/")}
+              variant="outline"
+              leftSection={<IconChevronLeft />}
+            >
+              Back
             </Button>
-            <Button type="submit" variant="outline"  color="green">
+            <Button type="submit" variant="outline" color="green">
               Verify
             </Button>
           </Group>
