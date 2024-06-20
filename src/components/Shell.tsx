@@ -2,6 +2,7 @@ import {
   AppShell,
   Avatar,
   Box,
+  Button,
   Card,
   Center,
   Container,
@@ -22,7 +23,8 @@ import Skills from "../pages/Skills";
 import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
 import { useState } from "react";
-import { IconChevronDown } from "@tabler/icons-react";
+import { IconChevronDown, IconLock } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
 function Shell() {
   // Hooks
@@ -54,7 +56,7 @@ function Shell() {
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
     });
-
+  const navigate = useNavigate();
   const isSmall = useMediaQuery("(max-width: 768px)");
   const links = [
     { label: "Home" },
@@ -175,9 +177,28 @@ function Shell() {
               </Menu>
             ) : (
               <Center>
-                <Avatar radius={50} size={"lg"} src={osama} />
-
-                
+                <Menu>
+                  <Menu.Target>
+                    <Avatar
+                      radius={50}
+                      size={"lg"}
+                      src={osama}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </Menu.Target>
+                  <Menu.Dropdown>
+                    <Button
+                      size="sm"
+                      variant="subtle"
+                      leftSection={<IconLock />}
+                      onClick={() => {
+                        navigate("/admin");
+                      }}
+                    >
+                      Admin
+                    </Button>
+                  </Menu.Dropdown>
+                </Menu>
               </Center>
             )}
           </Flex>

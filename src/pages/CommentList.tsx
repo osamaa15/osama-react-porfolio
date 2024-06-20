@@ -75,10 +75,10 @@ function CommentList() {
     </Table.Tr>
   ));
 
-  function handleDeleteCommentRecord(_id: string) {
+  function handleDeleteCommentRecord(id: string) {
     axios
       .delete("https://comment-system-be.vercel.app/api/comments", {
-        data: { _id },
+        data: { id },
       })
       .then((res) => {
         notifications.show({

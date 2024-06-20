@@ -43,6 +43,7 @@ function Admin() {
       <form onSubmit={handleKeyVerification}>
         <Stack>
           <TextInput
+          required
             label="KEY"
             description="Please enter the key"
             placeholder="****************"
