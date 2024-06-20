@@ -141,7 +141,7 @@ function Shell() {
               <Menu>
                 <Menu.Target>
                   <Card p={0} radius={"xl"}>
-                    <Flex align={"center"}>
+                    <Flex align={"end"}>
                       <Box ml={10}>
                         <IconChevronDown
                           color={theme === "dark" ? "yellow" : "black"}
