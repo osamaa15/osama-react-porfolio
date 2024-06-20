@@ -111,10 +111,9 @@ function CommentList() {
               scrollbarWidth: "thin",
               scrollBehavior: "smooth",
             }}
-            pos={"relative"}
           >
-            <LoadingOverlay visible={processing} />
-            <Table striped highlightOnHover withTableBorder withColumnBorders>
+            <Table striped highlightOnHover withTableBorder withColumnBorders pos={"relative"}>
+              <LoadingOverlay visible={processing} />
               <Table.Thead>
                 <Table.Tr>
                   <Table.Th>Name</Table.Th>
