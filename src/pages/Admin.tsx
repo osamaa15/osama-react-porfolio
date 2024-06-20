@@ -16,7 +16,7 @@ function Admin() {
   function handleKeyVerification(e: any) {
     e.preventDefault();
 
-    if (values.key === "hjkesfd1804uy3") {
+    if (values.key === "@qwertyuiop15") {
       navigate("/comments");
       notifications.show({
         title: "Verified!!",

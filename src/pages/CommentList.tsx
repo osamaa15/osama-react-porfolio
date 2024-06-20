@@ -146,7 +146,7 @@ function CommentList() {
   // Template
   return (
     <Container>
-      <Flex align={"center"} h={"100vh"}>
+      <Flex justify={"center"} align={"center"} h={"100vh"}>
         <Stack pos={"relative"}>
           <Group justify="center" align="center">
             <ActionIcon onClick={() => navigate("/")}>
@@ -203,7 +203,7 @@ function CommentList() {
           </Group>
         </Stack>
       </Flex>
-
+      {/*  */}
       <Modal
         opened={opened}
         onClose={close}
