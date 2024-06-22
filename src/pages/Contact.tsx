@@ -98,7 +98,7 @@ function Contact() {
               <Anchor href="mailto:osaiftgmail.com">osaift@gmail.com</Anchor>
             </Alert>
             <Alert title="WHATSAPP" icon={<IconBrandWhatsapp />}>
-              <Anchor href="https://wa.me/03136784434" target="_blank">
+              <Anchor href="https://wa.me/923136784434" target="_blank">
                 Go to WhatsApp
               </Anchor>
             </Alert>
