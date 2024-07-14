@@ -16,13 +16,14 @@ import {
 import { useMediaQuery, useScrollIntoView } from "@mantine/hooks";
 
 import osama from "../assets/osama.png";
-import Home from "../pages/Home";
-import About from "../pages/About";
-import Skills from "../pages/Skills";
-import Projects from "../pages/Projects";
-import Contact from "../pages/Contact";
+import Home from "../pages/home/Home";
+import About from "../pages/home/About";
+import Skills from "../pages/home/Skills";
+import Projects from "../pages/home/Projects";
+import Contact from "../pages/home/Contact";
 import { useState } from "react";
 import { IconChevronDown } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
 function Shell() {
   // Hooks
@@ -56,13 +57,17 @@ function Shell() {
     });
 
   const isSmall = useMediaQuery("(max-width: 768px)");
+
   const links = [
     { label: "Home" },
     { label: "About Me" },
     { label: "Skills" },
     { label: "Projects" },
     { label: "Contact" },
+    // { label: "More", route: "/utilities" },
   ];
+
+  const navigate = useNavigate();
 
   //   Handle funtions
   function handleLinkClick(index: any) {
@@ -79,6 +84,8 @@ function Shell() {
       scrollIntoViewProjects();
     } else if (label === "Contact") {
       scrollIntoViewContact();
+    } else if (label === "More") {
+      navigate("/utilities");
     } else {
       return null;
     }
@@ -111,13 +118,12 @@ function Shell() {
                     onClick={() => {
                       handleLinkClick(index);
                       handleScrollClick(link?.label);
-                      // navigate(link?.path);
                     }}
                     style={{ cursor: "pointer" }}
                     td={index === active ? "underline" : ""}
                     c={index === active ? "yellow" : ""}
                   >
-                    {link.label}
+                    {link?.label}
                   </Title>
                 </Group>
               ))}

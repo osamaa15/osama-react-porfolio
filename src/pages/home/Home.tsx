@@ -11,11 +11,11 @@ import {
   ActionIcon,
   Anchor,
 } from "@mantine/core";
-import SplitLayout from "../components/SplitLayout";
+import SplitLayout from "../../components/SplitLayout";
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
-import osama from "../assets/osama.png";
-// import { useNavigate } from "react-router-dom";
+import osama from "../../assets/osama.png";
+
 function Home() {
   // Hooks
 

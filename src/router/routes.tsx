@@ -1,13 +1,25 @@
 import { createBrowserRouter } from "react-router-dom";
 import PageNotFound from "../pages/PageNotFound";
 import Shell from "../components/Shell";
-import CommentList from "../pages/CommentList";
-import Admin from "../pages/Admin";
+import CommentList from "../pages/admin/CommentList";
+import Admin from "../pages/admin/Admin";
+import Utility from "../pages/utilities/Utility";
+import Calculator from "../components/Calculator";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <Shell />,
+  },
+  {
+    path: "utilities",
+    element: <Utility />,
+    children: [
+      {
+        path: "calculator",
+        element: <Calculator />,
+      },
+    ],
   },
   {
     path: "/_admin",
