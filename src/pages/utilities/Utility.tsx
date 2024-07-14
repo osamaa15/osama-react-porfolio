@@ -6,16 +6,19 @@ import {
   Flex,
   ActionIcon,
   Blockquote,
+  Modal,
 } from "@mantine/core";
 import useThreeGridColSizer from "../../hooks/useThreeGridColSizer";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IconCalculator, IconChevronLeft } from "@tabler/icons-react";
+import { useDisclosure } from "@mantine/hooks";
+import Calculator from "../../components/Calculator";
+import { useState } from "react";
 
 function Utility() {
   const cards: any = [
     {
       title: "Calculator",
-      route: "/utilities/calculator",
       icon: <IconCalculator />,
     },
     // { title: "Card 2", route: "/" },
@@ -25,8 +28,16 @@ function Utility() {
   // Hooks
   const cols = useThreeGridColSizer();
   const navigate = useNavigate();
+  const [opened, { open: openCalc, close: closeCalc }] = useDisclosure(false);
+  const [title, setTitle] = useState("");
   // Handle Functions
-
+  function handleModalNavigation(title: string) {
+    if (title === "Calculator") {
+      openCalc();
+    } else {
+      return null;
+    }
+  }
   // Template
   return (
     <Stack p={"xl"}>
@@ -49,7 +60,10 @@ function Utility() {
             mt="xl"
             icon={card?.icon}
             style={{ cursor: "pointer" }}
-            onClick={() => navigate(card?.route)}
+            onClick={() => {
+              handleModalNavigation(card?.title);
+              setTitle(card?.title);
+            }}
           >
             <Title size={"h2"} ta={"center"}>
               {card?.title}
@@ -58,7 +72,14 @@ function Utility() {
         ))}
       </SimpleGrid>
 
-      <Outlet />
+      {/*---------- Modals ---------- */}
+
+      {/* Calculator Modal */}
+      <Modal  opened={opened} onClose={closeCalc} title={title}>
+        <Calculator />  
+      </Modal>
+
+      {/*---------------------------- */}
     </Stack>
   );
 }

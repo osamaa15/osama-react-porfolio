@@ -82,7 +82,17 @@ const theme: MantineThemeOverride = {
     Pill: {
       defaultProps: {
         bg: "yellow",
-        c:"black",
+        c: "black",
+      },
+    },
+
+    Modal: {
+      defaultProps: {
+        closeOnClickOutside: false,
+        centered: true,
+      },
+      styles: {
+        title: { fontWeight: 700 },
       },
     },
   },

@@ -4,7 +4,6 @@ import Shell from "../components/Shell";
 import CommentList from "../pages/admin/CommentList";
 import Admin from "../pages/admin/Admin";
 import Utility from "../pages/utilities/Utility";
-import Calculator from "../components/Calculator";
 
 const routes = createBrowserRouter([
   {
@@ -14,12 +13,6 @@ const routes = createBrowserRouter([
   {
     path: "utilities",
     element: <Utility />,
-    children: [
-      {
-        path: "calculator",
-        element: <Calculator />,
-      },
-    ],
   },
   {
     path: "/_admin",

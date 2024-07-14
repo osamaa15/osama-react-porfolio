@@ -64,7 +64,7 @@ function Shell() {
     { label: "Skills" },
     { label: "Projects" },
     { label: "Contact" },
-    // { label: "More", route: "/utilities" },
+    { label: "More", route: "/utilities" },
   ];
 
   const navigate = useNavigate();
