@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Group, Button, TextInput, Text, Stack } from "@mantine/core";
+import { Group, Button, TextInput, Text, Stack, Switch } from "@mantine/core";
 
 function Calculator() {
   // Hooks
   const [expression, setExpression] = useState("");
   const [result, setResult] = useState("");
-
+  const [isScientific, setIsScientific] = useState(false);
+  const [power, setPower] = useState("");
   //  Handle Functions
   const handleNumberClick = (number: string) => {
     setExpression(expression + number);
@@ -20,13 +21,53 @@ function Calculator() {
       const result = eval(expression);
       setResult(result);
     } catch (error) {
-      setResult("Invlaid expression");
+      setResult("Invalid expression");
     }
   };
 
   const handleClearClick = () => {
     setExpression("");
     setResult("");
+  };
+  const handleSinClick = () => {
+    if (expression !== "") {
+      setResult(Math.sin(parseFloat(expression)).toString());
+      setExpression(`${expression} sin`);
+    }
+  };
+
+  const handleCosClick = () => {
+    if (expression !== "") {
+      setResult(Math.cos(parseFloat(expression)).toString());
+      setExpression(`${expression} cos`);
+    }
+  };
+
+  const handleTanClick = () => {
+    if (expression !== "") {
+      setResult(Math.tan(parseFloat(expression)).toString());
+      setExpression(`${expression} tan`);
+    }
+  };
+  const handleSqrtClick = () => {
+    if (expression !== "") {
+      setResult(Math.sqrt(parseFloat(expression)).toString());
+      setExpression(`√${expression}`);
+    }
+  };
+
+  const handleLogClick = () => {
+    if (expression !== "") {
+      setResult(Math.log(parseFloat(expression)).toString());
+      setExpression(`${expression} log`);
+    }
+  };
+
+  const handlePowClick = (power: any) => {
+    if (expression !== "") {
+      setResult(Math.pow(parseFloat(expression), power).toString());
+      setExpression(`${expression} ^ ${power}`);
+    }
   };
 
   return (
@@ -100,6 +141,38 @@ function Calculator() {
           </Button>
         </Group>
 
+        {isScientific && (
+          <Group>
+            <Button variant={"outline"} onClick={handleSinClick}>
+              sin
+            </Button>
+            <Button variant={"outline"} onClick={handleCosClick}>
+              cos
+            </Button>
+            <Button variant={"outline"} onClick={handleTanClick}>
+              tan
+            </Button>
+          </Group>
+        )}
+
+        {isScientific && (
+          <Group>
+            <Button variant={"outline"} onClick={handleSqrtClick}>
+              sqrt
+            </Button>
+            <Button variant={"outline"} onClick={handleLogClick}>
+              log
+            </Button>
+            {/* <Button variant={"outline"} onClick={() => handlePowClick(power)}>
+              x^
+            </Button> */}
+          </Group>
+        )}
+        <Switch
+          checked={isScientific}
+          onChange={(event) => setIsScientific(event.currentTarget.checked)}
+          label="Scientific"
+        />
         <Button onClick={handleClearClick}>Clear</Button>
       </Stack>
     </>
