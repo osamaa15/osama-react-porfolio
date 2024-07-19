@@ -6,7 +6,7 @@ function Calculator() {
   const [expression, setExpression] = useState("");
   const [result, setResult] = useState("");
   const [isScientific, setIsScientific] = useState(false);
-  const [power, setPower] = useState("");
+  // const [power, setPower] = useState("");
   //  Handle Functions
   const handleNumberClick = (number: string) => {
     setExpression(expression + number);
@@ -63,12 +63,12 @@ function Calculator() {
     }
   };
 
-  const handlePowClick = (power: any) => {
-    if (expression !== "") {
-      setResult(Math.pow(parseFloat(expression), power).toString());
-      setExpression(`${expression} ^ ${power}`);
-    }
-  };
+  // const handlePowClick = (power: any) => {
+  //   if (expression !== "") {
+  //     setResult(Math.pow(parseFloat(expression), power).toString());
+  //     setExpression(`${expression} ^ ${power}`);
+  //   }
+  // };
 
   return (
     <>
