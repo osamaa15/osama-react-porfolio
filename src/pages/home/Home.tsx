@@ -102,9 +102,9 @@ function HomeInformation() {
       </Box>
 
       <Text ta={"center"} w={isMobile ? "100%%" : "55%"}>
-        I am a versatile and proficient manual tester (QA Analyst) in SQA.
-        Additionally, I have extensive experience in software development,
-        particularly proficient in React.
+        I am a versatile and proficient manual & automation tester (QA Analyst)
+        in SQA. Additionally, I have extensive experience in software
+        development, particularly proficient in React.
       </Text>
 
       <Flex gap={"md"}>

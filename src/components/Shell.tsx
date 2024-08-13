@@ -14,6 +14,7 @@ import {
   useComputedColorScheme,
 } from "@mantine/core";
 import { useMediaQuery, useScrollIntoView } from "@mantine/hooks";
+import { useEffect, useState } from "react";
 
 import osama from "../assets/osama.png";
 import Home from "../pages/home/Home";
@@ -21,7 +22,6 @@ import About from "../pages/home/About";
 import Skills from "../pages/home/Skills";
 import Projects from "../pages/home/Projects";
 import Contact from "../pages/home/Contact";
-import { useState } from "react";
 import { IconChevronDown } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 
@@ -48,8 +48,8 @@ function Shell() {
     scrollIntoView: scrollIntoViewProjects,
     targetRef: targetRefProjects,
   } = useScrollIntoView<HTMLDivElement>({
-    offset: 150,
-  });
+      offset: 150,
+    });
 
   const { scrollIntoView: scrollIntoViewContact, targetRef: targetRefContact } =
     useScrollIntoView<HTMLDivElement>({
@@ -69,11 +69,11 @@ function Shell() {
 
   const navigate = useNavigate();
 
-  //   Handle funtions
-  function handleLinkClick(index: any) {
+  //   Handle functions
+  function handleLinkClick(index: number) {
     setActive(index);
   }
-  function handleScrollClick(label: any) {
+  function handleScrollClick(label: string) {
     if (label === "Home") {
       scrollIntoViewHome();
     } else if (label === "About Me") {
@@ -90,6 +90,47 @@ function Shell() {
       return null;
     }
   }
+
+  // Set active link on scroll
+  useEffect(() => {
+    const sections = [
+      { ref: targetRefHome, index: 0 },
+      { ref: targetRefAbout, index: 1 },
+      { ref: targetRefSkills, index: 2 },
+      { ref: targetRefProjects, index: 3 },
+      { ref: targetRefContact, index: 4 },
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const section = sections.find(
+              (section) => section.ref.current === entry.target
+            );
+            if (section) {
+              setActive(section.index);
+            }
+          }
+        });
+      },
+      { rootMargin: "-50% 0px -50% 0px" }
+    );
+
+    sections.forEach((section) => {
+      if (section.ref.current) {
+        observer.observe(section.ref.current);
+      }
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section.ref.current) {
+          observer.unobserve(section.ref.current);
+        }
+      });
+    };
+  }, [targetRefHome, targetRefAbout, targetRefSkills, targetRefProjects, targetRefContact]);
 
   // Template
   return (
