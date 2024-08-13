@@ -13,6 +13,7 @@ function Skills() {
   const skills: string[] = [
     "Software Quality Assurance",
     "Manual Unit Testing",
+    "Cypress",
     "GIT",
     "HTML 5",
     "CSS 3",

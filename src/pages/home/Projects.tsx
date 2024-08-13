@@ -39,6 +39,13 @@ function Projects() {
           <Anchor size="sm" href="https://xchangemls.com/login" target="_blank">
             Xchange (Ongoing).
           </Anchor>
+          <Anchor
+            size="sm"
+            href="https://www.dev.hexadesk.ca/auth/login"
+            target="_blank"
+          >
+            Hexa desk (Ongoing).
+          </Anchor>
         </Stack>
       </Blockquote>
       {/*  */}
@@ -69,7 +76,10 @@ function Projects() {
             underline="never"
             style={{ cursor: "default" }}
           >
-            Cricket Native App (2024 - Ongoing)
+            YoScores - Mobile App (2024 - Ongoing)
+          </Anchor>
+          <Anchor size="sm" target="_blank" href="https://pushstarter.co/">
+            Pushstarter (2024 - Ongoing)
           </Anchor>
         </Stack>
       </Blockquote>
