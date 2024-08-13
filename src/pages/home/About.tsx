@@ -30,7 +30,7 @@ function About() {
   return (
     <Transition
       mounted={mount}
-      transition="fade-left"
+      transition="fade-right"
       duration={3000}
       timingFunction="ease"
     >
