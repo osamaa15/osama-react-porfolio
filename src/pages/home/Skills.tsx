@@ -6,7 +6,9 @@ import {
   Card,
   Flex,
   Pill,
+  Transition,
 } from "@mantine/core";
+import { useEffect, useState } from "react";
 
 function Skills() {
   // Hooks
@@ -31,29 +33,44 @@ function Skills() {
     "Computer Operation",
     "Multi-Tasking",
   ];
+
+  const [mount, setMount] = useState(false);
+  useEffect(() => {
+    setMount(true);
+  }, []);
+
   // Handle funtions
 
   // Template
   return (
-    <Stack>
-      <Title tt={"uppercase"} td={"underline"} ta={"center"}>
-        Ski
-        <Text span inherit c={"#F08C00"} td={"underline"}>
-          lls
-        </Text>
-      </Title>
-      <Blockquote mt="xl">
-        <Card>
-          <Flex wrap={"wrap"}>
-            {skills.map((skill, index) => (
-              <Pill size={"md"} key={index}>
-                {skill}
-              </Pill>
-            ))}
-          </Flex>
-        </Card>
-      </Blockquote>
-    </Stack>
+    <Transition
+      mounted={mount}
+      transition="fade-left"
+      duration={3000}
+      timingFunction="ease"
+    >
+      {(styles) => (
+        <Stack style={styles}>
+          <Title tt={"uppercase"} td={"underline"} ta={"center"}>
+            Ski
+            <Text span inherit c={"#F08C00"} td={"underline"}>
+              lls
+            </Text>
+          </Title>
+          <Blockquote mt="xl">
+            <Card>
+              <Flex wrap={"wrap"}>
+                {skills.map((skill, index) => (
+                  <Pill size={"md"} key={index}>
+                    {skill}
+                  </Pill>
+                ))}
+              </Flex>
+            </Card>
+          </Blockquote>
+        </Stack>
+      )}
+    </Transition>
   );
 }
 

@@ -10,41 +10,55 @@ import {
   Center,
   ActionIcon,
   Anchor,
+  Transition,
 } from "@mantine/core";
 import SplitLayout from "../../components/SplitLayout";
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 import osama from "../../assets/osama.png";
+import { useEffect, useState } from "react";
 
 function Home() {
   // Hooks
-
+  const [mount, setMount] = useState(false);
+  useEffect(() => {
+    setMount(true);
+  }, []);
   // Handle funtions
 
   // Template
   return (
     <Flex align={"center"}>
-      <Card>
-        <SplitLayout
-          children={{
-            left: <HomeInformation />,
-            right: (
-              <Card withBorder={false} bg={"#FCC419"} p={0}>
-                <Box>
-                  <Center>
-                    <Image
-                      style={{ pointerEvents: "none" }}
-                      radius={"lg"}
-                      fit="contain"
-                      src={osama}
-                    />
-                  </Center>
-                </Box>
-              </Card>
-            ),
-          }}
-        />
-      </Card>
+      <Transition
+        mounted={mount}
+        transition="fade-left"
+        duration={3000}
+        timingFunction="ease"
+      >
+        {(styles) => (
+          <Card style={styles}>
+            <SplitLayout
+              children={{
+                left: <HomeInformation />,
+                right: (
+                  <Card withBorder={false} bg={"#FCC419"} p={0}>
+                    <Box>
+                      <Center>
+                        <Image
+                          style={{ pointerEvents: "none" }}
+                          radius={"lg"}
+                          fit="contain"
+                          src={osama}
+                        />
+                      </Center>
+                    </Box>
+                  </Card>
+                ),
+              }}
+            />
+          </Card>
+        )}
+      </Transition>
     </Flex>
   );
 }
