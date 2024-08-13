@@ -32,7 +32,12 @@ function Home() {
               <Card withBorder={false} bg={"#FCC419"} p={0}>
                 <Box>
                   <Center>
-                    <Image radius={"lg"} fit="contain" src={osama} />
+                    <Image
+                      style={{ pointerEvents: "none" }}
+                      radius={"lg"}
+                      fit="contain"
+                      src={osama}
+                    />
                   </Center>
                 </Box>
               </Card>
@@ -50,7 +55,7 @@ function HomeInformation() {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const isMobile = useMediaQuery("(max-width: 320px)");
   // const n = useNavigate();
-  // Handle funtions
+  // Handle functions
 
   // Template
   return (
