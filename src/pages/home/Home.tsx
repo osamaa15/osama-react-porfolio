@@ -15,7 +15,7 @@ import {
 import SplitLayout from "../../components/SplitLayout";
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 import { useMediaQuery } from "@mantine/hooks";
-import osama from "../../assets/osama.png";
+import imageLogo from "../../assets/osama.png";
 import { useEffect, useState } from "react";
 
 function Home() {
@@ -45,10 +45,12 @@ function Home() {
                     <Box>
                       <Center>
                         <Image
-                          style={{ pointerEvents: "none" }}
+                          style={{
+                            pointerEvents: "none",
+                          }}
                           radius={"lg"}
                           fit="contain"
-                          src={osama}
+                          src={imageLogo}
                         />
                       </Center>
                     </Box>
