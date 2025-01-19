@@ -12,6 +12,7 @@ import {
   Button,
   Fieldset,
   Transition,
+  Divider,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
@@ -114,8 +115,21 @@ function Contact() {
                   </Anchor>
                 </Alert>
               </Flex>
+
+              <Divider w={"100%"} label="OR" labelPosition="center" />
               <form onSubmit={handleSubmitComment}>
-                <Fieldset variant="default" legend="SHARE YOUR BUSINESS IDEA">
+                <Fieldset
+                  variant="default"
+                  legend="SHARE YOUR BUSINESS IDEA"
+                  styles={{
+                    legend: {
+                      paddingLeft: "10px",
+                      paddingRight: "10px",
+                      fontWeight: 600,
+                      fontSize: "large",
+                    },
+                  }}
+                >
                   <Stack>
                     <TextInput
                       placeholder="John Doe"
@@ -132,8 +146,9 @@ function Contact() {
                     />
                     <Textarea
                       placeholder="Lets talk!"
-                      label="Comments"
+                      label="About Your Project"
                       resize="vertical"
+                      rows={10}
                       required
                       {...getInputProps("comment")}
                     />

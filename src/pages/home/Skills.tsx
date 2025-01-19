@@ -44,7 +44,7 @@ function Skills() {
     setMount(true);
   }, []);
 
-  // Handle funtions
+  // Handle functions
 
   // Template
   return (

@@ -2,13 +2,17 @@ import {
   Title,
   Text,
   Stack,
-  Blockquote,
-  Anchor,
   Badge,
-  Group,
+  Image,
   Transition,
+  Card,
+  ScrollArea,
+  Grid,
 } from "@mantine/core";
 import { useEffect, useState } from "react";
+import projects from "../projects";
+
+const data = projects;
 
 function Projects() {
   // Hooks
@@ -31,79 +35,41 @@ function Projects() {
           <Title tt={"uppercase"} td={"underline"} ta={"center"}>
             Pro
             <Text span inherit c={"#F08C00"} td={"underline"}>
-              Jects
+              jects
             </Text>
           </Title>
-          <Blockquote mt="xl">
-            <Stack>
-              <Group justify="end">
-                <Badge>QA Projects</Badge>
-              </Group>
-              <Anchor
-                size="sm"
-                href="https://breeneq2.intelligentsoftware.net/"
-                target="_blank"
-              >
-                Breeneq Brand Store (Ongoing)
-              </Anchor>
-              <Anchor
-                size="sm"
-                href="https://vibe-design.intelligentsoftware.net/"
-                target="_blank"
-              >
-                Vibe Design (Ongoing).
-              </Anchor>
-              <Anchor
-                size="sm"
-                href="https://xchangemls.com/login"
-                target="_blank"
-              >
-                Xchange (Ongoing).
-              </Anchor>
-              <Anchor
-                size="sm"
-                href="https://www.dev.hexadesk.ca/auth/login"
-                target="_blank"
-              >
-                Hexa desk (Ongoing).
-              </Anchor>
-            </Stack>
-          </Blockquote>
-          {/*  */}
-          <Blockquote mt="xl">
-            <Stack>
-              <Group justify="end">
-                <Badge>Frontend Projects</Badge>
-              </Group>
-              <Anchor
-                size="sm"
-                target="_blank"
-                underline="never"
-                style={{ cursor: "default" }}
-              >
-                Leave and Attendance Record System (12/2022 – 02/2023 )
-              </Anchor>
-              <Anchor
-                size="sm"
-                target="_blank"
-                underline="never"
-                style={{ cursor: "default" }}
-              >
-                DHWQADY Booking Management System (06/2022 – 08/2023 )
-              </Anchor>
-              <Anchor
-                size="sm"
-                target="_blank"
-                underline="never"
-                style={{ cursor: "default" }}
-              >
-                YoScores - Mobile App (2024 - Ongoing)
-              </Anchor>
-              <Anchor size="sm" target="_blank" href="https://pushstarter.co/">
-                Pushstarter (2024 - Ongoing)
-              </Anchor>
-            </Stack>
-          </Blockquote>
+          <Card shadow="none">
+            <ScrollArea
+              h={500}
+              scrollbars="y"
+              offsetScrollbars
+              scrollbarSize={6}
+              scrollHideDelay={0}
+            >
+              <Grid>
+                {data.map((project, index) => (
+                  <Grid.Col span={{ xs: 12, md: 6 }} key={index}>
+                    <Card shadow="xs">
+                      <Card.Section pos={"relative"}>
+                        <Badge bottom={20} pos={"absolute"}>
+                          {project?.type === "qa" ? "SQA" : "Frontend"}
+                        </Badge>
+                        <Image src={project?.image} h={160} alt="No way!" />
+                      </Card.Section>
+                      <Text fw={500} size="lg" mt="md">
+                        {project?.title}
+                      </Text>
+                      {/* <Spoiler maxHeight={30} showLabel="more" hideLabel="less">
+                        <Text mt="xs" c="dimmed" size="sm">
+                          {project?.description}
+                        </Text>
+                      </Spoiler> */}
+                    </Card>
+                  </Grid.Col>
+                ))}
+              </Grid>
+            </ScrollArea>
+          </Card>
         </Stack>
       )}
     </Transition>
