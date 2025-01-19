@@ -9,6 +9,7 @@ import {
   Transition,
 } from "@mantine/core";
 import {
+  IconAbc,
   IconActivity,
   IconBook,
   IconBug,
@@ -51,30 +52,49 @@ function About() {
                 </Text>
               </Title>
               <br />
-              <Timeline active={1} bulletSize={24} lineWidth={2}>
+              <Timeline active={3} bulletSize={24} lineWidth={2}>
                 <Timeline.Item
                   bullet={<IconBug size={24} />}
-                  title="Quality Assurance"
+                  title="Software Quality Assurance (Automation | Manual) "
                 >
                   <Text c="dimmed" size="sm">
-                    I work in web quality assurance, manually testing websites
-                    to ensure a smooth user experience. This means I click
-                    through pages, fill out forms, and try different
-                    functionalities to identify any bugs, glitches, or areas for
+                    I work in web quality assurance, manually and automatically
+                    testing websites to ensure a smooth user experience. This
+                    involves clicking through pages, filling out forms, trying
+                    different functionalities, and writing and running automated
+                    scripts to identify any bugs, glitches, or areas for
                     improvement. My goal is to catch any issues before they
                     reach real users, helping to deliver polished and
-                    user-friendly websites.
+                    user-friendly websites efficiently and effectively.
                   </Text>
                 </Timeline.Item>
                 <Timeline.Item
                   bullet={<IconCode size={24} />}
-                  title="Web Development "
+                  title="Web Development"
                 >
                   <Text c="dimmed" size="sm">
                     In addition to Quality Assurance, I build user interfaces
                     for the web using React. It allows me to create interactive
                     and dynamic applications that provide a great user
                     experience.
+                  </Text>
+                </Timeline.Item>
+                <Timeline.Item
+                  bullet={<IconAbc size={24} />}
+                  title="Content Creation and Others"
+                >
+                  <Text c="dimmed" size="sm">
+                    I excel in content writing,data entry, crafting engaging,
+                    clear, and impactful content tailored to diverse audiences
+                    and platforms. My expertise in video editing enables me to
+                    create polished, visually compelling videos that effectively
+                    communicate messages or tell stories. Additionally, I
+                    specialize in software documentation, including producing
+                    detailed Software Requirement Specifications (SRS) that
+                    provide clear, structured, and comprehensive guidelines to
+                    support development and project goals. My creative and
+                    professional skill set complements my technical expertise,
+                    ensuring well-rounded contributions to any project.
                   </Text>
                 </Timeline.Item>
               </Timeline>
@@ -90,10 +110,10 @@ function About() {
               <Timeline active={2} bulletSize={24} lineWidth={2}>
                 <Timeline.Item
                   bullet={<IconActivity size={24} />}
-                  title="Intelligent Software Solutions, QA Analyst"
+                  title="Turing Nova LLP, SQA Analyst"
                 >
                   <Text c="dimmed" size="sm" tt={"uppercase"}>
-                    2024 - present
+                    2023 - present
                   </Text>
                   <List size="sm">
                     <List.Item>
@@ -169,24 +189,24 @@ function About() {
                 </Timeline.Item>
                 <Timeline.Item
                   bullet={<IconActivity size={24} />}
-                  title="Intelligent Software Solutions, Frontend Developer"
+                  title="Intelliware Software Solutions, React Developer"
                 >
                   <Text c="dimmed" size="sm" tt={"uppercase"}>
-                    2021 - present
+                    2021 - 2022
                   </Text>
                   <List size="sm">
                     <List.Item>
                       Designing and implementing visually appealing and user
-                      friendly interfaces using Angular best practices.
+                      friendly interfaces using React best practices.
                     </List.Item>
                     <List.Item>
                       Writing clean, maintainable, and reusable code that
-                      follows web standards and adheres to Angular coding
+                      follows web standards and adheres to React coding
                       conventions.
                     </List.Item>
                     <List.Item>
                       Developing product features and functionalities using
-                      Angular components, services, directives, pipes, and
+                      React components, services, directives, pipes, and
                       modules.
                     </List.Item>
                     <List.Item>
@@ -204,7 +224,7 @@ function About() {
                     </List.Item>
                     <List.Item>
                       Keeping up to date with the latest trends and technologies
-                      in web development and Angular ecosystem.
+                      in web development and React ecosystem.
                     </List.Item>
                   </List>
                 </Timeline.Item>

@@ -113,8 +113,8 @@ function HomeInformation() {
 
       <Spoiler
         maxHeight={80}
-        showLabel="Read more"
-        hideLabel="Hide"
+        showLabel="more"
+        hideLabel="less"
         styles={{
           control: {
             display: "flex",
