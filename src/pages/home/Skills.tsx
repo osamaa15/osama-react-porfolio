@@ -14,8 +14,9 @@ function Skills() {
   // Hooks
   const skills: string[] = [
     "Software Quality Assurance",
-    "Manual Unit Testing",
-    "Cypress",
+    "Manual Testing",
+    "Automated Testing",
+    "CypressJs",
     "GIT",
     "HTML 5",
     "CSS 3",
@@ -32,6 +33,10 @@ function Skills() {
     "Detail Oriented",
     "Computer Operation",
     "Multi-Tasking",
+    "Content Creation",
+    "Social Media Marketing",
+    "Video Editing",
+    "Software Documentation",
   ];
 
   const [mount, setMount] = useState(false);
