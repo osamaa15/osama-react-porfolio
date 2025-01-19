@@ -19,7 +19,6 @@ import {
   IconAddressBook,
   IconBrandWhatsapp,
   IconMail,
-  IconPhone,
 } from "@tabler/icons-react";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -104,9 +103,6 @@ function Contact() {
           <Blockquote mt="xl" icon={<IconAddressBook />}>
             <Stack>
               <Flex wrap={"wrap"} gap={"md"} justify={"center"}>
-                <Alert title="PHONE" icon={<IconPhone />}>
-                  +92 (313) 6784434
-                </Alert>
                 <Alert title="EMAIL" icon={<IconMail />}>
                   <Anchor href="mailto:osaiftgmail.com">
                     osaift@gmail.com

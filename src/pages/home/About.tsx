@@ -13,7 +13,6 @@ import {
   IconBook,
   IconBug,
   IconCode,
-  IconInfoCircle,
   IconZoomQuestion,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
@@ -42,7 +41,7 @@ function About() {
               Me
             </Text>
           </Title>
-        
+
           <Group>
             <Blockquote mt="xl" icon={<IconZoomQuestion />}>
               <Title size={"h4"}>
@@ -69,7 +68,7 @@ function About() {
                 </Timeline.Item>
                 <Timeline.Item
                   bullet={<IconCode size={24} />}
-                  title="Web Developement "
+                  title="Web Development "
                 >
                   <Text c="dimmed" size="sm">
                     In addition to Quality Assurance, I build user interfaces
@@ -177,8 +176,8 @@ function About() {
                   </Text>
                   <List size="sm">
                     <List.Item>
-                      Designing and implementing visually appealing and
-                      userfriendly interfaces using Angular best practices.
+                      Designing and implementing visually appealing and user
+                      friendly interfaces using Angular best practices.
                     </List.Item>
                     <List.Item>
                       Writing clean, maintainable, and reusable code that
