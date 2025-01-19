@@ -67,7 +67,7 @@ function Shell() {
     { label: "Skills" },
     { label: "Projects" },
     { label: "Contact" },
-    { label: "More", route: "/utilities" },
+    // { label: "More", route: "/utilities" },
   ];
 
   const navigate = useNavigate();
@@ -180,7 +180,6 @@ function Shell() {
                   <Title
                     size={"h5"}
                     tt={"uppercase"}
-               
                     onClick={() => {
                       handleLinkClick(index);
                       handleScrollClick(link?.label);

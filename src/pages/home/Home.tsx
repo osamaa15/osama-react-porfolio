@@ -39,8 +39,8 @@ function Home() {
           <Card style={styles}>
             <SplitLayout
               children={{
-                left: <HomeInformation />,
-                right: (
+                right: <HomeInformation />,
+                left: (
                   <Card
                     bg={"linear-gradient(to right, #fcc419, #feb47b)"}
                     p={0}
