@@ -2,7 +2,6 @@ import {
   AppShell,
   Avatar,
   Box,
-  Card,
   Center,
   Container,
   Flex,
@@ -11,7 +10,6 @@ import {
   Stack,
   Text,
   Title,
-  useComputedColorScheme,
 } from "@mantine/core";
 import { useMediaQuery, useScrollIntoView } from "@mantine/hooks";
 import { useEffect, useState } from "react";
@@ -22,15 +20,13 @@ import About from "../pages/home/About";
 import Skills from "../pages/home/Skills";
 import Projects from "../pages/home/Projects";
 import Contact from "../pages/home/Contact";
-import { IconChevronDown } from "@tabler/icons-react";
+
 import { useNavigate } from "react-router-dom";
 
 function Shell() {
   // Hooks
   const [active, setActive] = useState(0);
-  const theme = useComputedColorScheme("light", {
-    getInitialValueInEffect: true,
-  });
+
   const { scrollIntoView: scrollIntoViewHome, targetRef: targetRefHome } =
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
@@ -48,8 +44,8 @@ function Shell() {
     scrollIntoView: scrollIntoViewProjects,
     targetRef: targetRefProjects,
   } = useScrollIntoView<HTMLDivElement>({
-      offset: 150,
-    });
+    offset: 150,
+  });
 
   const { scrollIntoView: scrollIntoViewContact, targetRef: targetRefContact } =
     useScrollIntoView<HTMLDivElement>({
@@ -130,24 +126,34 @@ function Shell() {
         }
       });
     };
-  }, [targetRefHome, targetRefAbout, targetRefSkills, targetRefProjects, targetRefContact]);
+  }, [
+    targetRefHome,
+    targetRefAbout,
+    targetRefSkills,
+    targetRefProjects,
+    targetRefContact,
+  ]);
 
   // Template
   return (
     <AppShell header={{ height: 100 }} py={"md"}>
-      <AppShell.Header p={"md"}>
+      <AppShell.Header
+        p={"md"}
+        styles={{
+          header: {
+            borderRadius: "30px",
+            marginTop: "6px",
+            marginLeft: "30px",
+            marginRight: "30px",
+            boxShadow: "0 0 10px 0 rgba(0,0,0,0.1)",
+          },
+        }}
+      >
         <Flex
           h={"100%"}
           align={"center"}
-          justify={isSmall ? "end" : "space-between"}
+          justify={isSmall ? "center" : "space-between"}
         >
-          {!isSmall ? (
-            <>
-              <div></div>
-              <div></div>
-            </>
-          ) : null}
-
           {!isSmall ? (
             <Group>
               {links.map((link, index) => (
@@ -169,39 +175,25 @@ function Shell() {
                 </Group>
               ))}
             </Group>
-          ) : (
-            ""
-          )}
+          ) : null}
           <Flex align={"center"}>
-            {!isSmall ? (
-              <Text
-                size={isSmall ? "sm" : ""}
-                variant="gradient"
-                gradient={{ from: "orange", to: "yellow", deg: 190 }}
-                fw={600}
-                tt={"uppercase"}
-              >
-                Muhammad Osama Iftikhar
-              </Text>
-            ) : null}
             {isSmall ? (
-              <Menu>
+              <Menu withArrow shadow="xs">
                 <Menu.Target>
-                  <Card p={0} radius={"xl"}>
-                    <Flex align={"end"}>
-                      <Box ml={10}>
-                        <IconChevronDown
-                          color={theme === "dark" ? "yellow" : "black"}
-                        />
-                      </Box>
-                      <Avatar radius={50} size={"lg"} src={osama} />
-                    </Flex>
-                  </Card>
+                  <Stack align="center" gap={"xs"}>
+                    <Avatar radius={50} size={"lg"} src={osama} />
+                    <Text
+                      size={"xs"}
+                      variant="gradient"
+                      gradient={{ from: "orange", to: "yellow", deg: 190 }}
+                      fw={600}
+                      tt={"uppercase"}
+                    >
+                      Muhammad Osama Iftikhar
+                    </Text>
+                  </Stack>
                 </Menu.Target>
-                <Menu.Dropdown>
-                  <Menu.Label c={"orange"} fw={700}>
-                    Muhammad Osama Iftikhar
-                  </Menu.Label>
+                <Menu.Dropdown w={200}>
                   {links.map((link, index) => (
                     <Group key={index}>
                       <Menu.Item
@@ -228,7 +220,9 @@ function Shell() {
           </Flex>
         </Flex>
       </AppShell.Header>
-      <AppShell.Main>
+
+      {/*  */}
+      <AppShell.Main pos="relative">
         <Container fluid={!isSmall ? false : true}>
           <Stack>
             <Box ref={targetRefHome}>

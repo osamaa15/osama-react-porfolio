@@ -24,11 +24,11 @@ function Home() {
   useEffect(() => {
     setMount(true);
   }, []);
-  // Handle funtions
+  // Handle functions
 
   // Template
   return (
-    <Flex align={"center"}>
+    <Flex align={"center"} >
       <Transition
         mounted={mount}
         transition="fade-left"
@@ -41,7 +41,11 @@ function Home() {
               children={{
                 left: <HomeInformation />,
                 right: (
-                  <Card withBorder={false} bg={"#FCC419"} p={0}>
+                  <Card
+                    withBorder={false}
+                    bg={"linear-gradient(to right, #fcc419, #feb47b)"}
+                    p={0}
+                  >
                     <Box>
                       <Center>
                         <Image
