@@ -154,15 +154,18 @@ function Shell() {
   return (
     <AppShell header={{ height: 100 }} py={"md"}>
       <AppShell.Header
+        bg={"cyan"}
         p={"md"}
         styles={{
           header: {
             borderRadius: scrolled ? (isSmall ? "30px" : "100px") : "0px",
-            marginTop: scrolled ?(isSmall ? "6px" : "8px") : "0px",
-            marginLeft: scrolled ? (isSmall ? "30px" : "100px") : "0px",
-            marginRight: scrolled ? (isSmall ? "30px" : "100px") : "0px",
+            marginTop: scrolled ? (isSmall ? "6px" : "8px") : "0px",
+            marginLeft: scrolled ? (isSmall ? "30px" : "450px") : "0px",
+            marginRight: scrolled ? (isSmall ? "30px" : "450px") : "0px",
             boxShadow: scrolled ? "0 0 10px 0 rgba(0,0,0,0.1)" : "none",
             transition: "all 0.3s ease-in-out",
+            backgroundColor: "transparent", // Keep cyan when not scrolled
+            backdropFilter: scrolled ? "blur(10px)" : "none", // Apply blur when scrolled
           },
         }}
       >

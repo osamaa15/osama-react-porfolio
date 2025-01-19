@@ -28,7 +28,7 @@ function Home() {
 
   // Template
   return (
-    <Flex align={"center"} >
+    <Flex align={"center"}>
       <Transition
         mounted={mount}
         transition="fade-left"
@@ -42,7 +42,6 @@ function Home() {
                 left: <HomeInformation />,
                 right: (
                   <Card
-                    withBorder={false}
                     bg={"linear-gradient(to right, #fcc419, #feb47b)"}
                     p={0}
                   >

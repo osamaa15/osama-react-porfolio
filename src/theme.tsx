@@ -23,7 +23,7 @@ const theme: MantineThemeOverride = {
     Card: {
       defaultProps: {
         padding: "md",
-        shadow: "xl",
+        shadow: "sm",
         radius: "lg",
         withBorder: true,
       },
