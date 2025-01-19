@@ -1,8 +1,8 @@
 import {
+  ActionIcon,
   AppShell,
   Avatar,
   Box,
-  Center,
   Container,
   Flex,
   Group,
@@ -10,6 +10,7 @@ import {
   Stack,
   Text,
   Title,
+  useMantineTheme,
 } from "@mantine/core";
 import { useMediaQuery, useScrollIntoView } from "@mantine/hooks";
 import { useEffect, useState } from "react";
@@ -22,11 +23,13 @@ import Projects from "../pages/home/Projects";
 import Contact from "../pages/home/Contact";
 
 import { useNavigate } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
+import { IconMenu } from "@tabler/icons-react";
 
 function Shell() {
   // Hooks
   const [active, setActive] = useState(0);
-
+  const [opened, setOpened] = useState(false);
   const { scrollIntoView: scrollIntoViewHome, targetRef: targetRefHome } =
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
@@ -52,7 +55,9 @@ function Shell() {
       offset: 150,
     });
 
-  const isSmall = useMediaQuery("(max-width: 768px)");
+  const theme = useMantineTheme();
+
+  const isSmall = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
   const links = [
     { label: "Home" },
@@ -139,15 +144,15 @@ function Shell() {
     <AppShell header={{ height: 100 }} py={"md"}>
       <AppShell.Header
         p={"md"}
-        styles={{
-          header: {
-            borderRadius: "30px",
-            marginTop: "6px",
-            marginLeft: "30px",
-            marginRight: "30px",
-            boxShadow: "0 0 10px 0 rgba(0,0,0,0.1)",
-          },
-        }}
+        // styles={{
+        //   header: {
+        //     borderRadius: "30px",
+        //     marginTop: "6px",
+        //     marginLeft: "30px",
+        //     marginRight: "30px",
+        //     boxShadow: "0 0 10px 0 rgba(0,0,0,0.1)",
+        //   },
+        // }}
       >
         <Flex
           h={"100%"}
@@ -178,10 +183,25 @@ function Shell() {
           ) : null}
           <Flex align={"center"}>
             {isSmall ? (
-              <Menu withArrow shadow="xs">
-                <Menu.Target>
-                  <Stack align="center" gap={"xs"}>
+              <Menu
+                withArrow
+                shadow="xs"
+                opened={opened}
+                offset={0}
+                transitionProps={{ transition: "rotate-right", duration: 150 }}
+              >
+                <Stack align="center" gap={"xs"}>
+                  <Group gap={"xs"} align="center">
+                    <ThemeToggle size="lg" />
                     <Avatar radius={50} size={"lg"} src={osama} />
+                    <ActionIcon
+                      variant="transparent"
+                      onClick={() => setOpened(!opened)}
+                    >
+                      <IconMenu />
+                    </ActionIcon>
+                  </Group>
+                  <Menu.Target>
                     <Text
                       size={"xs"}
                       variant="gradient"
@@ -191,31 +211,32 @@ function Shell() {
                     >
                       Muhammad Osama Iftikhar
                     </Text>
-                  </Stack>
-                </Menu.Target>
-                <Menu.Dropdown w={200}>
+                  </Menu.Target>
+                </Stack>
+
+                <Menu.Dropdown w={300}>
                   {links.map((link, index) => (
-                    <Group key={index}>
-                      <Menu.Item
-                        tt={"capitalize"}
-                        onClick={() => {
-                          handleLinkClick(index);
-                          handleScrollClick(link?.label);
-                        }}
-                        td={index === active ? "underline" : ""}
-                        c={index === active ? "yellow" : ""}
-                        fw={600}
-                      >
-                        {link?.label}
-                      </Menu.Item>
-                    </Group>
+                    <Menu.Item
+                      key={index}
+                      tt={"capitalize"}
+                      onClick={() => {
+                        handleLinkClick(index);
+                        handleScrollClick(link?.label);
+                      }}
+                      td={index === active ? "underline" : ""}
+                      c={index === active ? "yellow" : ""}
+                      fw={600}
+                    >
+                      {link?.label}
+                    </Menu.Item>
                   ))}
                 </Menu.Dropdown>
               </Menu>
             ) : (
-              <Center>
+              <Group>
+                <ThemeToggle />
                 <Avatar radius={50} size={"lg"} src={osama} />
-              </Center>
+              </Group>
             )}
           </Flex>
         </Flex>
