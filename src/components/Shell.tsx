@@ -30,6 +30,8 @@ function Shell() {
   // Hooks
   const [active, setActive] = useState(0);
   const [opened, setOpened] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
   const { scrollIntoView: scrollIntoViewHome, targetRef: targetRefHome } =
     useScrollIntoView<HTMLDivElement>({
       offset: 150,
@@ -94,6 +96,15 @@ function Shell() {
 
   // Set active link on scroll
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 5) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
     const sections = [
       { ref: targetRefHome, index: 0 },
       { ref: targetRefAbout, index: 1 },
@@ -144,20 +155,21 @@ function Shell() {
     <AppShell header={{ height: 100 }} py={"md"}>
       <AppShell.Header
         p={"md"}
-        // styles={{
-        //   header: {
-        //     borderRadius: "30px",
-        //     marginTop: "6px",
-        //     marginLeft: "30px",
-        //     marginRight: "30px",
-        //     boxShadow: "0 0 10px 0 rgba(0,0,0,0.1)",
-        //   },
-        // }}
+        styles={{
+          header: {
+            borderRadius: scrolled ? (isSmall ? "30px" : "100px") : "0px",
+            marginTop: scrolled ?(isSmall ? "6px" : "8px") : "0px",
+            marginLeft: scrolled ? (isSmall ? "30px" : "100px") : "0px",
+            marginRight: scrolled ? (isSmall ? "30px" : "100px") : "0px",
+            boxShadow: scrolled ? "0 0 10px 0 rgba(0,0,0,0.1)" : "none",
+            transition: "all 0.3s ease-in-out",
+          },
+        }}
       >
         <Flex
           h={"100%"}
           align={"center"}
-          justify={isSmall ? "center" : "space-between"}
+          justify={isSmall ? "center" : "space-around"}
         >
           {!isSmall ? (
             <Group>
