@@ -11,6 +11,8 @@ import {
   ActionIcon,
   Anchor,
   Transition,
+  useMantineTheme,
+  Spoiler,
 } from "@mantine/core";
 import SplitLayout from "../../components/SplitLayout";
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
@@ -21,6 +23,7 @@ import { useEffect, useState } from "react";
 function Home() {
   // Hooks
   const [mount, setMount] = useState(false);
+
   useEffect(() => {
     setMount(true);
   }, []);
@@ -36,32 +39,35 @@ function Home() {
         timingFunction="ease"
       >
         {(styles) => (
-          <Card style={styles}>
-            <SplitLayout
-              children={{
-                left: <HomeInformation />,
-                right: (
-                  <Card
-                    bg={"linear-gradient(to right, #fcc419, #feb47b)"}
-                    p={0}
-                  >
-                    <Box>
-                      <Center>
-                        <Image
-                          style={{
-                            pointerEvents: "none",
-                          }}
-                          radius={"lg"}
-                          fit="contain"
-                          src={imageLogo}
-                        />
-                      </Center>
-                    </Box>
-                  </Card>
-                ),
-              }}
-            />
-          </Card>
+          <>
+            <Card style={styles}>
+              <SplitLayout
+                children={{
+                  left: <HomeInformation />,
+                  right: (
+                    <Flex h={"100%"} align={"center"}>
+                      <Card
+                        h={"fit"}
+                        bg={"linear-gradient(to right, #fcc419, #feb47b)"}
+                        p={0}
+                      >
+                        <Box>
+                          <Image
+                            style={{
+                              pointerEvents: "none",
+                            }}
+                            radius={"lg"}
+                            fit="fill"
+                            src={imageLogo}
+                          />
+                        </Box>
+                      </Card>
+                    </Flex>
+                  ),
+                }}
+              />
+            </Card>
+          </>
         )}
       </Transition>
     </Flex>
@@ -70,15 +76,15 @@ function Home() {
 
 function HomeInformation() {
   // Hooks
-
-  const isSmallScreen = useMediaQuery("(max-width: 768px)");
-  const isMobile = useMediaQuery("(max-width: 320px)");
+  const theme = useMantineTheme();
+  const isSmallScreen = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.xs})`);
   // const n = useNavigate();
   // Handle functions
 
   // Template
   return (
-    <Stack justify="center" h={"100%"} align={"center"} gap={"md"}>
+    <Stack justify="center" h={"100%"} align={"center"} gap={"sm"}>
       <Box>
         <Title tt={"uppercase"}>Hi There!</Title>
       </Box>
@@ -98,19 +104,50 @@ function HomeInformation() {
       </Box>
       <Box>
         <Badge
-          size="lg"
+          size={isMobile ? "sm" : "lg"}
           variant="gradient"
           gradient={{ from: "yellow", to: "orange", deg: 180 }}
         >
-          QA Analyst / Frontend Developer
+          SQA Analyst | React Developer | Web Designer
         </Badge>
       </Box>
 
-      <Text ta={"center"} w={isMobile ? "100%%" : "55%"}>
-        I am a versatile and proficient manual & automation tester (QA Analyst)
-        in SQA. Additionally, I have extensive experience in software
-        development, particularly proficient in React.
-      </Text>
+      <Spoiler
+        maxHeight={80}
+        showLabel="Read more"
+        hideLabel="Hide"
+        styles={{
+          control: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+          },
+        }}
+      >
+        <Text ta={isMobile ? "center" : "justify"}>
+          I am a versatile and proficient manual and automation tester (QA
+          Analyst) in Software Quality Assurance (SQA) with extensive experience
+          in software development and strong proficiency in React. I specialize
+          in crafting user-centered content, dynamic web interfaces, and
+          flawless software that deliver exceptional results. My expertise
+          includes Web and UX Writing, creating clear and persuasive web copy
+          aligned with brand voice, intuitive UX microcopy for seamless user
+          navigation, SEO-optimized content to boost visibility, and structured
+          content strategies for clarity and user-friendliness. As a React
+          developer, I build responsive, interactive, and dynamic user
+          interfaces using React.js and React Native, ensuring smooth
+          functionality and exceptional user experiences. In SQA, I excel in
+          manual and automation testing, leveraging tools like Cypress.js to
+          develop scalable test frameworks, conduct in-depth exploratory and
+          functional testing, and create robust automation scripts to enhance
+          efficiency and product quality. I also design comprehensive test
+          plans, write detailed test cases, and deliver actionable reports.
+          Additionally, I am skilled in content writing, video editing, and
+          creating detailed software documentation, including Software
+          Requirement Specifications (SRS).
+        </Text>
+      </Spoiler>
 
       <Flex gap={"md"}>
         <Anchor href="https://github.com/osamaa15" target="_blank">

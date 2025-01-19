@@ -256,7 +256,7 @@ function Shell() {
       </AppShell.Header>
 
       {/*  */}
-      <AppShell.Main pos="relative">
+      <AppShell.Main>
         <Container fluid={!isSmall ? false : true}>
           <Stack>
             <Box ref={targetRefHome}>
@@ -271,12 +271,13 @@ function Shell() {
             <Box ref={targetRefProjects}>
               <Projects />
             </Box>
-
             <Box ref={targetRefContact}>
               <Contact />
             </Box>
           </Stack>
         </Container>
+
+       
       </AppShell.Main>
     </AppShell>
   );

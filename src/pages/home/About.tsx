@@ -42,34 +42,7 @@ function About() {
               Me
             </Text>
           </Title>
-          <Group>
-            <Blockquote mt="xl" icon={<IconInfoCircle />}>
-              <Title size={"h4"}>
-                I'm Muhammad Osama Iftikhar,{" "}
-                <Text span inherit c={"#F08C00"} td={"underline"}>
-                  QA Analyst | Frontend Developer
-                </Text>
-              </Title>
-              <br />
-              <Text c="dimmed">
-                I'm not just your average QA Analyst; I'm a many-sided
-                professional with a deep passion for ensuring software quality.
-                My expertise lies in the art of manual testing, where I excel at
-                regardfully inspect applications to uncover even the most cagey
-                bugs. My experience goes beyond just finding flaws; I possess a
-                keen understanding of Software Quality Assurance (SQA)
-                principles, allowing me to strategize and implement effective
-                testing methodologies. But my skillset doesn't stop there. I'm
-                also a proficient software developer, with a particular fondness
-                for the power and flexibility of React. This unique blend of
-                qualities makes me a true asset to any development team. My
-                understanding of the development process allows me to approach
-                testing from a developer's perspective, anticipating potential
-                issues and crafting tests that truly challenge the software's
-                functionality.
-              </Text>
-            </Blockquote>
-          </Group>
+        
           <Group>
             <Blockquote mt="xl" icon={<IconZoomQuestion />}>
               <Title size={"h4"}>
