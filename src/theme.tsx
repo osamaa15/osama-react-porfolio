@@ -17,8 +17,6 @@ const theme: MantineThemeOverride = {
   },
   primaryColor: "yellow",
   fontSmoothing: true,
-  fontFamily: "Greycliff CF, sans-serif",
-  headings: { fontFamily: "Greycliff CF, sans-serif" },
   components: {
     Card: {
       defaultProps: {

@@ -154,7 +154,6 @@ function Shell() {
   return (
     <AppShell header={{ height: 100 }} py={"md"}>
       <AppShell.Header
-        bg={"cyan"}
         p={"md"}
         styles={{
           header: {
@@ -164,8 +163,8 @@ function Shell() {
             marginRight: scrolled ? (isSmall ? "30px" : "450px") : "0px",
             boxShadow: scrolled ? "0 0 10px 0 rgba(0,0,0,0.1)" : "none",
             transition: "all 0.3s ease-in-out",
-            backgroundColor: "transparent", // Keep cyan when not scrolled
-            backdropFilter: scrolled ? "blur(10px)" : "none", // Apply blur when scrolled
+            backgroundColor: "transparent",
+            backdropFilter: scrolled ? "blur(50px)" : "none",
           },
         }}
       >
@@ -179,9 +178,9 @@ function Shell() {
               {links.map((link, index) => (
                 <Group key={index}>
                   <Title
-                    size={"h4"}
+                    size={"h5"}
                     tt={"uppercase"}
-                    fw={600}
+               
                     onClick={() => {
                       handleLinkClick(index);
                       handleScrollClick(link?.label);
