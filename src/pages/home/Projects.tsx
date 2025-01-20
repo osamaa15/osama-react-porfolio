@@ -8,6 +8,7 @@ import {
   Card,
   ScrollArea,
   Grid,
+  Spoiler,
 } from "@mantine/core";
 import { useEffect, useState } from "react";
 import projects from "../projects";
@@ -59,11 +60,11 @@ function Projects() {
                       <Text fw={500} size="lg" mt="md">
                         {project?.title}
                       </Text>
-                      {/* <Spoiler maxHeight={30} showLabel="more" hideLabel="less">
+                      <Spoiler maxHeight={30} showLabel="more" hideLabel="less">
                         <Text mt="xs" c="dimmed" size="sm">
                           {project?.description}
                         </Text>
-                      </Spoiler> */}
+                      </Spoiler>
                     </Card>
                   </Grid.Col>
                 ))}
