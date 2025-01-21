@@ -60,6 +60,10 @@ function Shell() {
   const theme = useMantineTheme();
 
   const isSmall = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const isMedium = useMediaQuery(
+    `(min-width: ${theme.breakpoints.md}) and (max-width: ${theme.breakpoints.lg})`
+  );
+  const isLarge = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
 
   const links = [
     { label: "Home" },
@@ -157,10 +161,42 @@ function Shell() {
         p={"md"}
         styles={{
           header: {
-            borderRadius: scrolled ? (isSmall ? "30px" : "100px") : "0px",
-            marginTop: scrolled ? (isSmall ? "6px" : "8px") : "0px",
-            marginLeft: scrolled ? (isSmall ? "30px" : "450px") : "0px",
-            marginRight: scrolled ? (isSmall ? "30px" : "450px") : "0px",
+            borderRadius: scrolled
+              ? isSmall
+                ? "30px"
+                : isMedium
+                ? "60px"
+                : isLarge
+                ? "80px"
+                : "100px"
+              : "0px",
+            marginTop: scrolled
+              ? isSmall
+                ? "6px"
+                : isMedium
+                ? "8px"
+                : isLarge
+                ? "12px"
+                : "10px"
+              : "0px",
+            marginLeft: scrolled
+              ? isSmall
+                ? "30px"
+                : isMedium
+                ? "150px"
+                : isLarge
+                ? "350px"
+                : "450px"
+              : "0px",
+            marginRight: scrolled
+              ? isSmall
+                ? "30px"
+                : isMedium
+                ? "150px"
+                : isLarge
+                ? "350px"
+                : "450px"
+              : "0px",
             boxShadow: scrolled ? "0 0 10px 0 rgba(0,0,0,0.1)" : "none",
             transition: "all 0.3s ease-in-out",
             backgroundColor: "transparent",
@@ -276,8 +312,6 @@ function Shell() {
             </Box>
           </Stack>
         </Container>
-
-       
       </AppShell.Main>
     </AppShell>
   );
